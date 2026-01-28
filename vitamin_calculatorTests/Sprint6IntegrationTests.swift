@@ -250,7 +250,7 @@ struct Sprint6IntegrationTests {
             )
 
             // Act - Validate
-            let errors = importService.validateImportData(exportData)
+            let errors = await importService.validateImportData(exportData)
 
             // Assert - No validation errors for valid data
             #expect(errors.count == 0, "Valid data should pass validation")

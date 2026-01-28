@@ -21,6 +21,8 @@ final class IntakeRecord {
     var supplementName: String
 
     /// The date when the supplement was taken
+    /// Sprint 7 Phase 1: Added indexing hint for better query performance
+    @Attribute(.spotlight)
     var date: Date
 
     /// The time of day when the supplement was taken

@@ -36,7 +36,8 @@ struct DashboardView: View {
     @ViewBuilder
     private func dashboardContent(viewModel: DashboardViewModel) -> some View {
         ScrollView {
-            VStack(spacing: 20) {
+            // Sprint 7 Phase 1: Using LazyVStack for better performance
+            LazyVStack(spacing: 20) {
                 // Today's Summary Card
                 TodaySummaryCard(summary: viewModel.todaySummary)
 
@@ -186,7 +187,8 @@ struct NutrientProgressSection: View {
     }
 }
 
-struct NutrientProgressRing: View {
+// Sprint 7 Phase 1: Optimized with Equatable to reduce redraws
+struct NutrientProgressRing: View, Equatable {
     let nutrient: NutrientType
     let summary: DailyIntakeSummary
     let userType: UserType
@@ -240,6 +242,13 @@ struct NutrientProgressRing: View {
         .padding(8)
         .background(Color(.secondarySystemBackground))
         .clipShape(RoundedRectangle(cornerRadius: 8))
+    }
+
+    // Equatable implementation to avoid unnecessary redraws
+    static func == (lhs: NutrientProgressRing, rhs: NutrientProgressRing) -> Bool {
+        lhs.nutrient == rhs.nutrient &&
+        lhs.userType == rhs.userType &&
+        lhs.percentage == rhs.percentage
     }
 }
 

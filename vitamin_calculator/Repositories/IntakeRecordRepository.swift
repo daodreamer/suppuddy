@@ -38,10 +38,15 @@ final class IntakeRecordRepository {
     // MARK: - Read
 
     /// Retrieves all intake records from the database
-    /// - Returns: Array of all intake records
+    /// Sprint 7 Phase 1: Optimized with sorting for better performance
+    /// - Returns: Array of all intake records, sorted by date (newest first)
     /// - Throws: SwiftData errors if fetch fails
     func getAll() async throws -> [IntakeRecord] {
-        let descriptor = FetchDescriptor<IntakeRecord>()
+        var descriptor = FetchDescriptor<IntakeRecord>(
+            sortBy: [SortDescriptor(\.date, order: .reverse)]
+        )
+        // Performance optimization: Limit result set if needed
+        // descriptor.fetchLimit = 1000
         return try modelContext.fetch(descriptor)
     }
 
@@ -122,28 +127,40 @@ final class IntakeRecordRepository {
     }
 
     /// Deletes all intake records for a specific date
+    /// Sprint 7 Phase 1: Optimized batch deletion
     /// - Parameter date: The date for which to delete records
     /// - Throws: SwiftData errors if delete fails
     func deleteByDate(_ date: Date) async throws {
         let recordsToDelete = try await getByDate(date)
 
+        // Disable autosave for batch operations
+        modelContext.autosaveEnabled = false
+
         for record in recordsToDelete {
             modelContext.delete(record)
         }
 
+        // Save once after all deletes
         try modelContext.save()
+        modelContext.autosaveEnabled = true
     }
 
     /// Deletes all intake records from the database
+    /// Sprint 7 Phase 1: Optimized batch deletion
     /// - Throws: SwiftData errors if delete fails
     func deleteAll() async throws {
         let descriptor = FetchDescriptor<IntakeRecord>()
         let allRecords = try modelContext.fetch(descriptor)
 
+        // Disable autosave for batch operations
+        modelContext.autosaveEnabled = false
+
         for record in allRecords {
             modelContext.delete(record)
         }
 
+        // Save once after all deletes
         try modelContext.save()
+        modelContext.autosaveEnabled = true
     }
 }

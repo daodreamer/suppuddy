@@ -9,45 +9,84 @@ import SwiftUI
 import SwiftData
 
 /// Main content view with tab-based navigation
+/// Sprint 7 Phase 1: Optimized with lazy tab loading for better performance
 struct ContentView: View {
     @State private var selectedTab = 0
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            // Dashboard tab
+            // Dashboard tab - loaded immediately as it's the default view
             DashboardView()
                 .tabItem {
                     Label("首页", systemImage: "house.fill")
                 }
                 .tag(0)
 
-            // Intake Record tab
-            IntakeRecordView()
-                .tabItem {
-                    Label("记录", systemImage: "plus.circle.fill")
-                }
-                .tag(1)
+            // Intake Record tab - loaded lazily when first accessed
+            LazyTabView(selectedTab: $selectedTab, tag: 1) {
+                IntakeRecordView()
+            }
+            .tabItem {
+                Label("记录", systemImage: "plus.circle.fill")
+            }
+            .tag(1)
 
-            // Supplements tab
-            SupplementListView()
-                .tabItem {
-                    Label("补剂", systemImage: "pills.fill")
-                }
-                .tag(2)
+            // Supplements tab - loaded lazily when first accessed
+            LazyTabView(selectedTab: $selectedTab, tag: 2) {
+                SupplementListView()
+            }
+            .tabItem {
+                Label("补剂", systemImage: "pills.fill")
+            }
+            .tag(2)
 
-            // History tab
-            HistoryView()
-                .tabItem {
-                    Label("历史", systemImage: "calendar")
-                }
-                .tag(3)
+            // History tab - loaded lazily when first accessed
+            LazyTabView(selectedTab: $selectedTab, tag: 3) {
+                HistoryView()
+            }
+            .tabItem {
+                Label("历史", systemImage: "calendar")
+            }
+            .tag(3)
 
-            // Profile tab
-            ProfileView()
-                .tabItem {
-                    Label("我的", systemImage: "person.fill")
-                }
-                .tag(4)
+            // Profile tab - loaded lazily when first accessed
+            LazyTabView(selectedTab: $selectedTab, tag: 4) {
+                ProfileView()
+            }
+            .tabItem {
+                Label("我的", systemImage: "person.fill")
+            }
+            .tag(4)
+        }
+    }
+}
+
+/// Helper view for lazy tab loading
+/// Only initializes the content when the tab is first selected
+struct LazyTabView<Content: View>: View {
+    @Binding var selectedTab: Int
+    let tag: Int
+    @ViewBuilder let content: () -> Content
+
+    @State private var hasLoaded = false
+
+    var body: some View {
+        Group {
+            if hasLoaded {
+                content()
+            } else {
+                Color.clear
+                    .onAppear {
+                        if selectedTab == tag {
+                            hasLoaded = true
+                        }
+                    }
+            }
+        }
+        .onChange(of: selectedTab) { _, newValue in
+            if newValue == tag && !hasLoaded {
+                hasLoaded = true
+            }
         }
     }
 }

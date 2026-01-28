@@ -3,16 +3,25 @@
 //  vitamin_calculator
 //
 //  Created by Jiongdao Wang on 25.01.26.
+//  Updated: Sprint 7 Phase 1 - Performance Optimization
 //
 
 import SwiftUI
 import SwiftData
+import os.signpost
 
 @main
 struct vitamin_calculatorApp: App {
+    // MARK: - Performance Monitoring
+
+    private let performanceMonitor = PerformanceMonitor.shared
+
     // MARK: - SwiftData Model Container
 
     var modelContainer: ModelContainer = {
+        let signpostID = PerformanceMonitor.shared.begin("ModelContainer Init")
+        defer { PerformanceMonitor.shared.end("ModelContainer Init", signpostID: signpostID) }
+
         let schema = Schema([
             UserProfile.self,
             Supplement.self,
@@ -32,6 +41,13 @@ struct vitamin_calculatorApp: App {
 
     @State private var showOnboarding = false
     @State private var isCheckingOnboarding = true
+
+    // MARK: - Initialization
+
+    init() {
+        // Sprint 7 Phase 1: Configure cache on app launch
+        CacheConfiguration.configure()
+    }
 
     // MARK: - Body
 
@@ -66,6 +82,9 @@ struct vitamin_calculatorApp: App {
 
     /// Checks if the user needs to complete onboarding
     private func checkOnboardingStatus() async {
+        let signpostID = performanceMonitor.begin("Onboarding Check")
+        defer { performanceMonitor.end("Onboarding Check", signpostID: signpostID) }
+
         let context = modelContainer.mainContext
         let userRepository = UserRepository(modelContext: context)
         let onboardingService = OnboardingService(userRepository: userRepository)

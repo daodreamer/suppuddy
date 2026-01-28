@@ -103,4 +103,13 @@ final class DashboardViewModel {
             return defaultProfile
         }
     }
+
+    // MARK: - Deinitialization
+
+    // Sprint 7 Phase 1: Memory leak detection
+    #if DEBUG
+    deinit {
+        print("✅ DashboardViewModel deallocated")
+    }
+    #endif
 }

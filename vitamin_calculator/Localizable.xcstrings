@@ -1,2467 +1,3179 @@
 {
-  "sourceLanguage": "en",
-  "strings": {
-    "app_name": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitamin Rechner"
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "%@ • %lldx/day" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ • %2$lldx/day"
+          }
+        }
+      }
+    },
+    "%@：%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@：%2$@"
+          }
+        }
+      }
+    },
+    "%lld" : {
+
+    },
+    "%lld nutrients" : {
+
+    },
+    "%lld of %lld nutrients can be tracked" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld of %2$lld nutrients can be tracked"
+          }
+        }
+      }
+    },
+    "%lld 份" : {
+
+    },
+    "%lld 岁" : {
+
+    },
+    "%lld 条记录" : {
+
+    },
+    "%lld 种营养素" : {
+
+    },
+    "%lld 项" : {
+
+    },
+    "%lld%%" : {
+
+    },
+    "%lldx" : {
+
+    },
+    "•" : {
+
+    },
+    "0%" : {
+
+    },
+    "100%" : {
+
+    },
+    "About You" : {
+      "comment" : "Onboarding user type step title"
+    },
+    "about_data_source" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datenquelle"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitamin Calculator"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data Source"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "维生素计算器"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数据来源"
           }
         }
       }
     },
-    "tab_dashboard": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Übersicht"
+    "about_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin Calculator hilft Ihnen, Ihre tägliche Nährstoffaufnahme zu verfolgen und bietet Gesundheitsempfehlungen basierend auf den DGE-Werten."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dashboard"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin Calculator helps you track your daily nutrient intake and provides health recommendations based on DGE values."
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "首页"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin Calculator 帮助您追踪每日营养素摄入，基于德国营养学会 (DGE) 推荐值提供健康建议。"
           }
         }
       }
     },
-    "tab_record": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aufzeichnen"
+    "about_dge_reference" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DGE Referenzwerte"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Record"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DGE Reference Values"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "记录"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DGE 参考值"
           }
         }
       }
     },
-    "tab_supplements": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Supplemente"
+    "about_version" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version 1.0.0"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Supplements"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version 1.0.0"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "补剂"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "版本 1.0.0"
           }
         }
       }
+    },
+    "Activate" : {
+
+    },
+    "Add" : {
+
+    },
+    "Add Nutrient" : {
+
+    },
+    "Add your first supplement to get started" : {
+
     },
-    "tab_history": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Verlauf"
+    "Added" : {
+
+    },
+    "Adult Female" : {
+      "comment" : "Adult Female user type"
+    },
+    "Adult Male" : {
+      "comment" : "Adult Male user type"
+    },
+    "Align barcode within frame" : {
+
+    },
+    "All Set!" : {
+      "comment" : "Onboarding complete step title"
+    },
+    "Allow Camera Access" : {
+
+    },
+    "Amount" : {
+
+    },
+    "Amount per serving" : {
+
+    },
+    "app_name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin Rechner"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "History"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin Calculator"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "历史"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "维生素计算器"
           }
         }
       }
+    },
+    "Ascending" : {
+
+    },
+    "Barcode: %@" : {
+
+    },
+    "Basic Information" : {
+
     },
-    "tab_profile": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Profil"
+    "Brand (optional)" : {
+
+    },
+    "button_cancel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbrechen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Profile"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "我的"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消"
           }
         }
       }
     },
-    "button_save": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Speichern"
+    "button_delete" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Löschen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Save"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "保存"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除"
           }
         }
       }
     },
-    "button_cancel": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Abbrechen"
+    "button_done" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fertig"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cancel"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "取消"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完成"
           }
         }
       }
     },
-    "button_done": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fertig"
+    "button_edit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bearbeiten"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Done"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "完成"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "编辑"
           }
         }
       }
     },
-    "button_ok": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "OK"
+    "button_ok" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "OK"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "确定"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确定"
           }
         }
       }
     },
-    "button_delete": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Löschen"
+    "button_save" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Speichern"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Delete"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "删除"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存"
           }
         }
       }
+    },
+    "Camera Access Required" : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Child (age %d)" : {
+      "comment" : "Child user type with age"
     },
-    "button_edit": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bearbeiten"
+    "Clear All" : {
+
+    },
+    "Clear All History?" : {
+
+    },
+    "Close" : {
+
+    },
+    "Currently Taking" : {
+
+    },
+    "Daily Intake" : {
+
+    },
+    "dashboard_intake_records" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einnahmeprotokolle"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Edit"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intake Records"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "编辑"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "摄入记录"
           }
         }
       }
     },
-    "user_type_adult_male": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Erwachsener Mann"
+    "dashboard_no_records" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Einträge für heute"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Adult Male"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No records for today"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "成年男性"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今日暂无摄入记录"
           }
         }
       }
     },
-    "user_type_adult_female": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Erwachsene Frau"
+    "dashboard_nutrients" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nährstoffe"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Adult Female"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nutrients"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "成年女性"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "营养素"
           }
         }
       }
+    },
+    "Deactivate" : {
+
+    },
+    "Delete" : {
+
     },
-    "user_type_child": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kind"
+    "Descending" : {
+
+    },
+    "DGE 参考值" : {
+
+    },
+    "dismiss" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schließen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Child"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dismiss"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "儿童"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关闭"
           }
         }
       }
+    },
+    "Do you have any special nutritional needs?" : {
+      "comment" : "Onboarding special needs description"
+    },
+    "Edit" : {
+
     },
-    "section_settings": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Einstellungen"
+    "Edit Supplement" : {
+
+    },
+    "Enter a product name or brand to search" : {
+
+    },
+    "error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fehler"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Settings"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "设置"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "错误"
           }
         }
       }
     },
-    "section_data": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Daten"
+    "Error" : {
+
+    },
+    "error_camera_not_authorized" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kamerazugriff nicht autorisiert"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Data"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Camera access not authorized"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "数据"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "相机访问未授权"
           }
         }
       }
     },
-    "section_statistics": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Statistiken"
+    "error_camera_not_authorized_recovery" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte aktivieren Sie den Kamerazugriff in den Einstellungen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Statistics"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please enable camera access in Settings"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "统计信息"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请在设置中启用相机访问"
           }
         }
       }
     },
-    "section_about": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Über"
+    "error_delete_failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Löschen fehlgeschlagen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "About"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to delete data"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "关于"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除失败"
           }
         }
       }
     },
-    "loading": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Laden..."
+    "error_delete_failed_recovery" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte versuchen Sie erneut zu löschen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Loading..."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please try deleting again"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "加载中..."
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请重新删除"
           }
         }
       }
     },
-    "error": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fehler"
+    "error_fetch_failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laden fehlgeschlagen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Error"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to load data"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "错误"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "加载失败"
           }
         }
       }
     },
-    "dashboard_intake_records": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Einnahmeprotokolle"
+    "error_fetch_failed_recovery" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte starten Sie die App neu und versuchen Sie es erneut"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Intake Records"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please restart the app and try again"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "摄入记录"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请重启应用后重试"
           }
         }
       }
     },
-    "dashboard_nutrients": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nährstoffe"
+    "error_icon" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fehler"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nutrients"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "营养素"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "错误"
           }
         }
       }
     },
-    "dashboard_no_records": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Keine Einträge für heute"
+    "error_invalid_input" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ungültige Eingabe"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No records for today"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid input"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "今日暂无摄入记录"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "输入无效"
           }
         }
       }
     },
-    "profile_title": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Profil"
+    "error_invalid_input_recovery" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte überprüfen Sie Ihre Eingabe und versuchen Sie es erneut"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Profile"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please check your input and try again"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "个人资料"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请检查输入后重试"
           }
         }
       }
     },
-    "profile_data_management": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Datenverwaltung"
+    "error_invalid_range" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ungültiger Wert"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Data Management"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid value"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "数据管理"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "值无效"
           }
         }
       }
     },
-    "profile_user_not_setup": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Benutzer nicht eingerichtet"
+    "error_invalid_range_recovery" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte geben Sie einen gültigen Wert ein"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "User not set up"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please enter a valid value"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "未设置用户"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请输入有效值"
           }
         }
       }
     },
-    "profile_click_to_setup": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Klicken Sie, um Ihr Profil einzurichten"
+    "error_invalid_response" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ungültige Serverantwort"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Click to set up your profile"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid server response"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "点击设置个人信息"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无效的服务器响应"
           }
         }
       }
     },
-    "profile_total_supplements": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Supplemente insgesamt"
+    "error_invalid_response_recovery" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte versuchen Sie es erneut"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Total Supplements"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please try again"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "总补剂数"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请重试"
           }
         }
       }
     },
-    "profile_total_records": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Einträge insgesamt"
+    "error_migration_failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datenbankmigration fehlgeschlagen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Total Records"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to migrate database"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "总记录数"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数据库迁移失败"
           }
         }
       }
     },
-    "about_description": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitamin Calculator hilft Ihnen, Ihre tägliche Nährstoffaufnahme zu verfolgen und bietet Gesundheitsempfehlungen basierend auf den DGE-Werten."
+    "error_migration_failed_recovery" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte installieren Sie die App neu"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitamin Calculator helps you track your daily nutrient intake and provides health recommendations based on DGE values."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please reinstall the app"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitamin Calculator 帮助您追踪每日营养素摄入，基于德国营养学会 (DGE) 推荐值提供健康建议。"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请重新安装应用"
           }
         }
       }
     },
-    "about_data_source": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Datenquelle"
+    "error_missing_required_field" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erforderliches Feld fehlt"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Data Source"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Required field is missing"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "数据来源"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "缺少必填字段"
           }
         }
       }
     },
-    "about_dge_reference": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "DGE Referenzwerte"
+    "error_missing_required_field_recovery" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte füllen Sie alle erforderlichen Felder aus"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "DGE Reference Values"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please fill in all required fields"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "DGE 参考值"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请填写所有必填字段"
           }
         }
       }
     },
-    "about_version": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Version 1.0.0"
+    "error_no_connection" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Internetverbindung"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Version 1.0.0"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No internet connection"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "版本 1.0.0"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无网络连接"
           }
         }
       }
     },
-    "record_intake_title": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Einnahme aufzeichnen"
+    "error_no_connection_recovery" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Record Intake"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please check your internet connection and try again"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "记录摄入"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请检查网络连接后重试"
           }
         }
       }
     },
-    "record_select_supplement": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Supplement auswählen"
+    "error_notification_not_authorized" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benachrichtigungszugriff nicht autorisiert"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Select Supplement"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notification access not authorized"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "选择补剂"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通知访问未授权"
           }
         }
       }
     },
-    "record_no_supplements": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Keine Supplemente"
+    "error_notification_not_authorized_recovery" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte aktivieren Sie Benachrichtigungen in den Einstellungen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No Supplements"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please enable notifications in Settings"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "暂无补剂"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请在设置中启用通知"
           }
         }
       }
     },
-    "record_add_supplements_first": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bitte fügen Sie zuerst Supplemente hinzu"
+    "error_occurred" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein Fehler ist aufgetreten"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Please add supplements first"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An error occurred"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "请先添加补剂"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "发生错误"
           }
         }
       }
     },
-    "record_time_of_day": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tageszeit"
+    "error_save_failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Speichern fehlgeschlagen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Time of Day"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to save data"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "服用时间"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存失败"
           }
         }
       }
     },
-    "record_serving_count": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Portionen"
+    "error_save_failed_recovery" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte versuchen Sie erneut zu speichern"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Servings"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please try saving again"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "服用份数"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请重新保存"
           }
         }
       }
     },
-    "record_today_records": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Heutige Einträge"
+    "error_server_error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serverfehler"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Today's Records"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Server error"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "今日记录"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "服务器错误"
           }
         }
       }
     },
-    "record_no_records_today": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Keine Einträge für heute"
+    "error_server_error_recovery" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Server hat Probleme. Bitte versuchen Sie es später erneut"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No records for today"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The server is experiencing issues. Please try again later"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "今日暂无记录"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "服务器出现问题，请稍后重试"
           }
         }
       }
     },
-    "record_button_record": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Einnahme aufzeichnen"
+    "error_timeout" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeitüberschreitung"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Record Intake"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Request timed out"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "记录摄入"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请求超时"
           }
         }
       }
     },
-    "nutrient_vitaminA": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitamin A"
+    "error_timeout_recovery" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte versuchen Sie es später erneut"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitamin A"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please try again later"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "维生素A"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请稍后重试"
           }
         }
       }
     },
-    "nutrient_vitaminD": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitamin D"
+    "error_unknown" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein unbekannter Fehler ist aufgetreten"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitamin D"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An unknown error occurred"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "维生素D"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "发生未知错误"
           }
         }
       }
     },
-    "nutrient_vitaminE": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitamin E"
+    "error_unknown_recovery" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte versuchen Sie es erneut oder kontaktieren Sie den Support"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitamin E"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please try again or contact support"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "维生素E"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请重试或联系支持"
           }
         }
       }
+    },
+    "Features" : {
+      "comment" : "Onboarding features step title"
     },
-    "nutrient_vitaminK": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitamin K"
+    "Here's what you can do with this app:" : {
+      "comment" : "Onboarding features description"
+    },
+    "Inactive" : {
+
+    },
+    "Information" : {
+
+    },
+    "Invalid response from server" : {
+      "comment" : "Invalid response error"
+    },
+    "Last updated" : {
+
+    },
+    "loading" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laden..."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitamin K"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading..."
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "维生素K"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "加载中..."
           }
         }
       }
+    },
+    "Loading history..." : {
+
+    },
+    "Loading..." : {
+
+    },
+    "Name" : {
+
+    },
+    "Network error: %@" : {
+      "comment" : "Network error"
+    },
+    "New Supplement" : {
+
+    },
+    "No more results" : {
+
+    },
+    "No nutrient information available" : {
+
+    },
+    "No nutrients added" : {
+
+    },
+    "No Results Found" : {
+
+    },
+    "No Scan History" : {
+
     },
-    "nutrient_vitaminC": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitamin C"
+    "No Supplements" : {
+
+    },
+    "Notes" : {
+
+    },
+    "Nutrient" : {
+
+    },
+    "nutrient_biotin" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Biotin"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitamin C"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Biotin"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "维生素C"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "生物素"
           }
         }
       }
     },
-    "nutrient_vitaminB1": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitamin B1 (Thiamin)"
+    "nutrient_calcium" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calcium"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitamin B1 (Thiamin)"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calcium"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "维生素B1 (硫胺素)"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "钙"
           }
         }
       }
     },
-    "nutrient_vitaminB2": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitamin B2 (Riboflavin)"
+    "nutrient_chromium" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chrom"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitamin B2 (Riboflavin)"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chromium"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "维生素B2 (核黄素)"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "铬"
           }
         }
       }
     },
-    "nutrient_vitaminB3": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitamin B3 (Niacin)"
+    "nutrient_copper" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kupfer"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitamin B3 (Niacin)"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copper"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "维生素B3 (烟酸)"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "铜"
           }
         }
       }
     },
-    "nutrient_vitaminB6": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitamin B6 (Pyridoxin)"
+    "nutrient_count" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d Nährstoffe"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitamin B6 (Pyridoxine)"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d nutrients"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "维生素B6 (吡哆醇)"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d 种营养素"
           }
         }
       }
     },
-    "nutrient_vitaminB12": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitamin B12 (Cobalamin)"
+    "nutrient_folate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Folsäure"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitamin B12 (Cobalamin)"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Folate"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "维生素B12 (钴胺素)"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶酸"
           }
         }
       }
     },
-    "nutrient_folate": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Folsäure"
+    "nutrient_iodine" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jod"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Folate"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iodine"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "叶酸"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "碘"
           }
         }
       }
     },
-    "nutrient_biotin": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Biotin"
+    "nutrient_iron" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eisen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Biotin"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iron"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "生物素"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "铁"
           }
         }
       }
     },
-    "nutrient_pantothenicAcid": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pantothensäure"
+    "nutrient_magnesium" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Magnesium"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pantothenic Acid"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Magnesium"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "泛酸"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "镁"
           }
         }
       }
     },
-    "nutrient_calcium": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Calcium"
+    "nutrient_manganese" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mangan"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Calcium"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Manganese"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "钙"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "锰"
           }
         }
       }
     },
-    "nutrient_magnesium": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Magnesium"
+    "nutrient_molybdenum" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Molybdän"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Magnesium"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Molybdenum"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "镁"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "钼"
           }
         }
       }
     },
-    "nutrient_iron": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eisen"
+    "nutrient_pantothenicAcid" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pantothensäure"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Iron"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pantothenic Acid"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "铁"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "泛酸"
           }
         }
       }
     },
-    "nutrient_zinc": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zink"
+    "nutrient_selenium" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zinc"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selenium"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "锌"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "硒"
           }
         }
       }
     },
-    "nutrient_selenium": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Selen"
+    "nutrient_vitaminA" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin A"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Selenium"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin A"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "硒"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "维生素A"
           }
         }
       }
     },
-    "nutrient_iodine": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Jod"
+    "nutrient_vitaminB1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin B1 (Thiamin)"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Iodine"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin B1 (Thiamin)"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "碘"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "维生素B1 (硫胺素)"
           }
         }
       }
     },
-    "nutrient_copper": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kupfer"
+    "nutrient_vitaminB2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin B2 (Riboflavin)"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Copper"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin B2 (Riboflavin)"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "铜"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "维生素B2 (核黄素)"
           }
         }
       }
     },
-    "nutrient_manganese": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mangan"
+    "nutrient_vitaminB3" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin B3 (Niacin)"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Manganese"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin B3 (Niacin)"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "锰"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "维生素B3 (烟酸)"
           }
         }
       }
     },
-    "nutrient_chromium": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Chrom"
+    "nutrient_vitaminB6" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin B6 (Pyridoxin)"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Chromium"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin B6 (Pyridoxine)"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "铬"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "维生素B6 (吡哆醇)"
           }
         }
       }
     },
-    "nutrient_molybdenum": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Molybdän"
+    "nutrient_vitaminB12" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin B12 (Cobalamin)"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Molybdenum"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin B12 (Cobalamin)"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "钼"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "维生素B12 (钴胺素)"
           }
         }
       }
     },
-    "today": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Heute"
+    "nutrient_vitaminC" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin C"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Today"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin C"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "今天"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "维生素C"
           }
         }
       }
     },
-    "yesterday": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gestern"
+    "nutrient_vitaminD" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin D"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Yesterday"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin D"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "昨天"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "维生素D"
           }
         }
       }
     },
-    "nutrients": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nährstoffe"
+    "nutrient_vitaminE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin E"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "nutrients"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin E"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "营养素"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "维生素E"
           }
         }
       }
     },
-    "nutrient_count": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%d Nährstoffe"
+    "nutrient_vitaminK" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin K"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%d nutrients"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin K"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%d 种营养素"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "维生素K"
           }
         }
       }
     },
-    "serving": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Portion"
+    "nutrient_zinc" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zink"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "serving"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zinc"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "份"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "锌"
           }
         }
       }
     },
-    "serving_singular": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Portion"
+    "nutrients" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nährstoffe"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "serving"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "nutrients"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "份"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "营养素"
           }
         }
       }
     },
-    "serving_plural": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Portionen"
+    "Nutrients" : {
+
+    },
+    "Nutrients (per serving)" : {
+
+    },
+    "offline_icon" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offline"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "servings"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offline"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "份"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "离线"
           }
         }
       }
     },
-    "error_unknown": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ein unbekannter Fehler ist aufgetreten"
+    "offline_message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Internetverbindung"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "An unknown error occurred"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No internet connection"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "发生未知错误"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无网络连接"
           }
         }
       }
+    },
+    "OK" : {
+
+    },
+    "Open Settings" : {
+
     },
-    "error_unknown_recovery": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bitte versuchen Sie es erneut oder kontaktieren Sie den Support"
+    "per day" : {
+
+    },
+    "Product Details" : {
+
+    },
+    "Product Not Found" : {
+
+    },
+    "Product not found in database" : {
+      "comment" : "Product not found error"
+    },
+    "profile_click_to_setup" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klicken Sie, um Ihr Profil einzurichten"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Please try again or contact support"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Click to set up your profile"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "请重试或联系支持"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击设置个人信息"
           }
         }
       }
     },
-    "error_no_connection": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Keine Internetverbindung"
+    "profile_data_management" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datenverwaltung"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No internet connection"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data Management"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "无网络连接"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数据管理"
           }
         }
       }
     },
-    "error_no_connection_recovery": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut"
+    "profile_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Please check your internet connection and try again"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profile"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "请检查网络连接后重试"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "个人资料"
           }
         }
       }
     },
-    "error_timeout": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zeitüberschreitung"
+    "profile_total_records" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einträge insgesamt"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Request timed out"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total Records"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "请求超时"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "总记录数"
           }
         }
       }
     },
-    "error_timeout_recovery": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bitte versuchen Sie es später erneut"
+    "profile_total_supplements" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supplemente insgesamt"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Please try again later"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total Supplements"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "请稍后重试"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "总补剂数"
           }
         }
       }
     },
-    "error_server_error": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Serverfehler"
+    "profile_user_not_setup" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benutzer nicht eingerichtet"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Server error"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "User not set up"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "服务器错误"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未设置用户"
           }
         }
       }
     },
-    "error_server_error_recovery": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Der Server hat Probleme. Bitte versuchen Sie es später erneut"
+    "Quick Add" : {
+
+    },
+    "record_add_supplements_first" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte fügen Sie zuerst Supplemente hinzu"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The server is experiencing issues. Please try again later"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please add supplements first"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "服务器出现问题，请稍后重试"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请先添加补剂"
           }
         }
       }
     },
-    "error_invalid_response": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ungültige Serverantwort"
+    "record_button_record" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einnahme aufzeichnen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Invalid server response"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Record Intake"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "无效的服务器响应"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录摄入"
           }
         }
       }
     },
-    "error_invalid_response_recovery": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bitte versuchen Sie es erneut"
+    "record_intake_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einnahme aufzeichnen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Please try again"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Record Intake"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "请重试"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录摄入"
           }
         }
       }
     },
-    "error_save_failed": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Speichern fehlgeschlagen"
+    "record_no_records_today" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Einträge für heute"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Failed to save data"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No records for today"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "保存失败"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今日暂无记录"
           }
         }
       }
     },
-    "error_save_failed_recovery": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bitte versuchen Sie erneut zu speichern"
+    "record_no_supplements" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Supplemente"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Please try saving again"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Supplements"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "请重新保存"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂无补剂"
           }
         }
       }
     },
-    "error_fetch_failed": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Laden fehlgeschlagen"
+    "record_select_supplement" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supplement auswählen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Failed to load data"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select Supplement"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "加载失败"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择补剂"
           }
         }
       }
     },
-    "error_fetch_failed_recovery": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bitte starten Sie die App neu und versuchen Sie es erneut"
+    "record_serving_count" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Portionen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Please restart the app and try again"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Servings"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "请重启应用后重试"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "服用份数"
           }
         }
       }
     },
-    "error_delete_failed": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Löschen fehlgeschlagen"
+    "record_time_of_day" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tageszeit"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Failed to delete data"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Time of Day"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "删除失败"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "服用时间"
           }
         }
       }
     },
-    "error_delete_failed_recovery": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bitte versuchen Sie erneut zu löschen"
+    "record_today_records" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Heutige Einträge"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Please try deleting again"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Today's Records"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "请重新删除"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今日记录"
           }
         }
       }
+    },
+    "Rescan" : {
+
     },
-    "error_migration_failed": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Datenbankmigration fehlgeschlagen"
+    "retry" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wiederholen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Failed to migrate database"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retry"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "数据库迁移失败"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重试"
           }
         }
       }
+    },
+    "Retry" : {
+
+    },
+    "Save" : {
+
     },
-    "error_migration_failed_recovery": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bitte installieren Sie die App neu"
+    "Scan a product barcode or search our database to quickly add supplement information" : {
+
+    },
+    "Scan Barcode" : {
+
+    },
+    "Scan History" : {
+
+    },
+    "Search for Supplements" : {
+
+    },
+    "Search for supplements..." : {
+
+    },
+    "Search Products" : {
+
+    },
+    "Searching..." : {
+
+    },
+    "section_about" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Über"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Please reinstall the app"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "请重新安装应用"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关于"
           }
         }
       }
     },
-    "error_invalid_input": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ungültige Eingabe"
+    "section_data" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daten"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Invalid input"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "输入无效"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数据"
           }
         }
       }
     },
-    "error_invalid_input_recovery": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bitte überprüfen Sie Ihre Eingabe und versuchen Sie es erneut"
+    "section_settings" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Please check your input and try again"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "请检查输入后重试"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置"
           }
         }
       }
     },
-    "error_missing_required_field": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Erforderliches Feld fehlt"
+    "section_statistics" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statistiken"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Required field is missing"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statistics"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "缺少必填字段"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "统计信息"
           }
         }
       }
     },
-    "error_missing_required_field_recovery": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bitte füllen Sie alle erforderlichen Felder aus"
+    "Select Nutrient" : {
+
+    },
+    "Select..." : {
+
+    },
+    "Server error: %d" : {
+      "comment" : "Server error"
+    },
+    "serving" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Portion"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Please fill in all required fields"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "serving"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "请填写所有必填字段"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "份"
           }
         }
       }
+    },
+    "Serving" : {
+
     },
-    "error_invalid_range": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ungültiger Wert"
+    "Serving Size (e.g., 1 tablet)" : {
+
+    },
+    "serving_plural" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Portionen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Invalid value"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "servings"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "值无效"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "份"
           }
         }
       }
     },
-    "error_invalid_range_recovery": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bitte geben Sie einen gültigen Wert ein"
+    "serving_singular" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Portion"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Please enter a valid value"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "serving"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "请输入有效值"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "份"
           }
         }
       }
+    },
+    "Serving: %@" : {
+
+    },
+    "Servings per day" : {
+
+    },
+    "Servings per day: %lld" : {
+
     },
-    "error_camera_not_authorized": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kamerazugriff nicht autorisiert"
+    "Sort by Date Added" : {
+
+    },
+    "Sort by Name" : {
+
+    },
+    "Special Needs" : {
+      "comment" : "Onboarding special needs step title"
+    },
+    "Supplements" : {
+
+    },
+    "tab_dashboard" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Übersicht"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Camera access not authorized"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dashboard"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "相机访问未授权"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "首页"
           }
         }
       }
     },
-    "error_camera_not_authorized_recovery": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bitte aktivieren Sie den Kamerazugriff in den Einstellungen"
+    "tab_history" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verlauf"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Please enable camera access in Settings"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "History"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "请在设置中启用相机访问"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "历史"
           }
         }
       }
     },
-    "error_notification_not_authorized": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Benachrichtigungszugriff nicht autorisiert"
+    "tab_profile" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Notification access not authorized"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profile"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "通知访问未授权"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我的"
           }
         }
       }
     },
-    "error_notification_not_authorized_recovery": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bitte aktivieren Sie Benachrichtigungen in den Einstellungen"
+    "tab_record" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aufzeichnen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Please enable notifications in Settings"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Record"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "请在设置中启用通知"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录"
           }
         }
       }
     },
-    "error_icon": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fehler"
+    "tab_supplements" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supplemente"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Error"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supplements"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "错误"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "补剂"
           }
         }
       }
+    },
+    "Tell us a bit about yourself so we can provide accurate nutrient recommendations." : {
+      "comment" : "Onboarding user type description"
+    },
+    "This product is not in our database. You can add it manually." : {
+
+    },
+    "This will be added to your daily supplement list" : {
+
     },
-    "error_occurred": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ein Fehler ist aufgetreten"
+    "This will delete all scan history records. This action cannot be undone." : {
+
+    },
+    "today" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Heute"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "An error occurred"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Today"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "发生错误"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今天"
           }
         }
       }
+    },
+    "Too many requests. Please try again later." : {
+      "comment" : "Rate limit error"
+    },
+    "Try Again" : {
+
+    },
+    "Try searching with different keywords" : {
+
     },
-    "retry": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Wiederholen"
+    "Use Product" : {
+
+    },
+    "user_type_adult_female" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erwachsene Frau"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Retry"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adult Female"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "重试"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "成年女性"
           }
         }
       }
     },
-    "dismiss": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Schließen"
+    "user_type_adult_male" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erwachsener Mann"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dismiss"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adult Male"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "关闭"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "成年男性"
           }
         }
       }
     },
-    "offline_icon": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Offline"
+    "user_type_child" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kind"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Offline"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Child"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "离线"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "儿童"
           }
         }
       }
+    },
+    "Validation Error" : {
+
+    },
+    "Vitamin Calculator" : {
+
+    },
+    "Vitamin Calculator 帮助您追踪每日营养素摄入，基于德国营养学会 (DGE) 推荐值提供健康建议。" : {
+
     },
-    "offline_message": {
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Keine Internetverbindung"
+    "Welcome" : {
+      "comment" : "Onboarding welcome step title"
+    },
+    "Welcome to Vitamin Calculator! Let's set up your profile to get personalized recommendations." : {
+      "comment" : "Onboarding welcome description"
+    },
+    "yesterday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gestern"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No internet connection"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yesterday"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "无网络连接"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "昨天"
+          }
+        }
+      }
+    },
+    "You're all set! Start tracking your supplements and nutrients." : {
+      "comment" : "Onboarding complete description"
+    },
+    "Your scanned products will appear here" : {
+
+    },
+    "上一步" : {
+
+    },
+    "下一步" : {
+
+    },
+    "个人资料" : {
+
+    },
+    "主要功能" : {
+
+    },
+    "今日尚无摄入记录" : {
+
+    },
+    "今日暂无摄入记录" : {
+
+    },
+    "今日暂无记录" : {
+
+    },
+    "今日营养素摄入" : {
+
+    },
+    "今日记录" : {
+
+    },
+    "份数" : {
+
+    },
+    "保存" : {
+
+    },
+    "保存个人资料后即可查看推荐值" : {
+
+    },
+    "健康提示" : {
+
+    },
+    "儿童" : {
+
+    },
+    "全部完成！" : {
+
+    },
+    "关于" : {
+
+    },
+    "关于您" : {
+
+    },
+    "最大安全摄入量:" : {
+
+    },
+    "出生日期" : {
+
+    },
+    "删除补剂 %@" : {
+
+    },
+    "加载中..." : {
+
+    },
+    "历史" : {
+
+    },
+    "历史记录" : {
+
+    },
+    "发现 %lld 个冲突" : {
+
+    },
+    "取消" : {
+
+    },
+    "合并" : {
+
+    },
+    "告诉我们一些您的信息，以便我们提供准确的营养推荐。" : {
+
+    },
+    "基本信息" : {
+
+    },
+    "姓名" : {
+
+    },
+    "完成" : {
+
+    },
+    "导入" : {
+
+    },
+    "导入成功" : {
+
+    },
+    "导入数据" : {
+
+    },
+    "导入模式" : {
+
+    },
+    "导入结果" : {
+
+    },
+    "导入预览" : {
+
+    },
+    "导出" : {
+
+    },
+    "导出数据" : {
+
+    },
+    "平均每日摄入" : {
+
+    },
+    "年龄" : {
+
+    },
+    "年龄:" : {
+
+    },
+    "开始日期" : {
+
+    },
+    "恢复使用补剂 %@" : {
+
+    },
+    "您已经准备好开始追踪您的补剂和营养素了。" : {
+
+    },
+    "您是否有特殊的营养需求？" : {
+
+    },
+    "成年女性" : {
+
+    },
+    "成年男性" : {
+
+    },
+    "我们将根据您的特殊需求调整推荐的营养素摄入量。" : {
+
+    },
+    "我的" : {
+
+    },
+    "我的推荐值" : {
+
+    },
+    "推荐: %@ %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "推荐: %1$@ %2$@"
           }
         }
       }
+    },
+    "推荐值" : {
+
+    },
+    "推荐值:" : {
+
+    },
+    "推荐值将根据您的特殊需求调整" : {
+
+    },
+    "摄入趋势" : {
+
+    },
+    "摄入量" : {
+
+    },
+    "撤销" : {
+
+    },
+    "数据" : {
+
+    },
+    "数据来源" : {
+
+    },
+    "数据管理" : {
+
+    },
+    "无记录" : {
+
+    },
+    "日期" : {
+
+    },
+    "日期：%@" : {
+
+    },
+    "时段" : {
+
+    },
+    "时间范围" : {
+
+    },
+    "暂停使用补剂 %@" : {
+
+    },
+    "暂无数据" : {
+
+    },
+    "暂无补剂" : {
+
+    },
+    "更改已保存" : {
+
+    },
+    "替换" : {
+
+    },
+    "服用份数" : {
+
+    },
+    "服用时间" : {
+
+    },
+    "未设置用户" : {
+
+    },
+    "查看我的营养推荐值" : {
+
+    },
+    "欢迎使用维生素计算器" : {
+
+    },
+    "正在处理..." : {
+
+    },
+    "正在导出..." : {
+
+    },
+    "每日推荐值" : {
+
+    },
+    "点击\"完成\"按钮开始使用" : {
+
+    },
+    "点击添加新的补剂" : {
+
+    },
+    "点击设置个人信息" : {
+
+    },
+    "版本 1.0.0" : {
+
+    },
+    "特殊需求" : {
+
+    },
+    "特殊需求:" : {
+
+    },
+    "用户类型" : {
+
+    },
+    "用户类型:" : {
+
+    },
+    "矿物质" : {
+
+    },
+    "确定" : {
+
+    },
+    "结束日期" : {
+
+    },
+    "统计信息" : {
+
+    },
+    "维生素" : {
+
+    },
+    "编辑补剂 %@" : {
+
+    },
+    "营养素信息" : {
+
+    },
+    "补剂" : {
+
+    },
+    "让我们设置您的个人资料，以便为您提供个性化的营养推荐值。" : {
+
+    },
+    "记录" : {
+
+    },
+    "记录摄入" : {
+
+    },
+    "记录摄入后查看趋势" : {
+
+    },
+    "记录补剂摄入后查看营养素进度" : {
+
+    },
+    "设置" : {
+
+    },
+    "该日期没有摄入记录" : {
+
+    },
+    "请先添加补剂" : {
+
+    },
+    "请输入您的姓名" : {
+
+    },
+    "请选择导入模式" : {
+
+    },
+    "跳过" : {
+
+    },
+    "这些推荐值基于德国营养学会(DGE)的官方标准。" : {
+
+    },
+    "这是您可以使用本应用做的事情：" : {
+
+    },
+    "选择出生日期" : {
+
+    },
+    "选择日期范围" : {
+
+    },
+    "选择补剂" : {
+
+    },
+    "选择补剂排序方式" : {
+
+    },
+    "错误" : {
+
+    },
+    "首页" : {
+
     }
   },
-  "version": "1.0"
+  "version" : "1.0"
 }

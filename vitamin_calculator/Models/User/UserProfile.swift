@@ -44,14 +44,18 @@ final class UserProfile {
     /// Used to determine appropriate nutrient recommendations
     var userType: UserType {
         get {
-            guard let data = userTypeData,
-                  let decoded = try? JSONDecoder().decode(UserType.self, from: data) else {
+            guard let data = userTypeData else {
+                return .male // Default fallback
+            }
+            let decoder = JSONDecoder()
+            guard let decoded = try? decoder.decode(UserType.self, from: data) else {
                 return .male // Default fallback
             }
             return decoded
         }
         set {
-            userTypeData = try? JSONEncoder().encode(newValue)
+            let encoder = JSONEncoder()
+            userTypeData = try? encoder.encode(newValue)
         }
     }
 

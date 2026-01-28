@@ -8,7 +8,7 @@
 import Foundation
 
 /// Protocol to abstract URLSession for testing
-protocol URLSessionProtocol {
+protocol URLSessionProtocol: Sendable {
     func data(for request: URLRequest) async throws -> (Data, URLResponse)
 }
 
@@ -81,9 +81,8 @@ actor OpenFoodFactsAPI {
             switch httpResponse.statusCode {
             case 200:
                 // Product found, decode it
-                let decoder = JSONDecoder()
                 do {
-                    let product = try decoder.decode(ScannedProduct.self, from: data)
+                    let product = try decodeProduct(from: data)
                     return product
                 } catch {
                     throw OpenFoodFactsError.invalidResponse
@@ -149,9 +148,8 @@ actor OpenFoodFactsAPI {
             switch httpResponse.statusCode {
             case 200:
                 // Success, decode search results
-                let decoder = JSONDecoder()
                 do {
-                    let searchResult = try decoder.decode(ProductSearchResult.self, from: data)
+                    let searchResult = try decodeSearchResult(from: data)
                     return searchResult
                 } catch {
                     throw OpenFoodFactsError.invalidResponse
@@ -172,6 +170,26 @@ actor OpenFoodFactsAPI {
         } catch {
             throw OpenFoodFactsError.networkError(error)
         }
+    }
+
+    // MARK: - Helper Methods
+
+    /// Decodes product data in a nonisolated context to avoid actor isolation issues
+    /// - Parameter data: The JSON data to decode
+    /// - Returns: Decoded ScannedProduct
+    /// - Throws: DecodingError if decoding fails
+    private nonisolated func decodeProduct(from data: Data) throws -> ScannedProduct {
+        let decoder = JSONDecoder()
+        return try decoder.decode(ScannedProduct.self, from: data)
+    }
+
+    /// Decodes search result data in a nonisolated context to avoid actor isolation issues
+    /// - Parameter data: The JSON data to decode
+    /// - Returns: Decoded ProductSearchResult
+    /// - Throws: DecodingError if decoding fails
+    private nonisolated func decodeSearchResult(from data: Data) throws -> ProductSearchResult {
+        let decoder = JSONDecoder()
+        return try decoder.decode(ProductSearchResult.self, from: data)
     }
 
     // MARK: - Availability Check

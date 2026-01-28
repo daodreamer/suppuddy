@@ -31,9 +31,33 @@ struct vitamin_calculatorApp: App {
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
         do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
+            let container = try ModelContainer(for: schema, configurations: [modelConfiguration])
+            return container
         } catch {
-            fatalError("Could not create ModelContainer: \(error)")
+            // If container creation fails, it might be due to schema corruption
+            // Log the error and attempt to delete the database files
+            print("Failed to create ModelContainer: \(error)")
+            print("Attempting to reset database...")
+
+            // Delete the corrupted database files
+            if let appSupport = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first {
+                let dbFiles = try? FileManager.default.contentsOfDirectory(
+                    at: appSupport,
+                    includingPropertiesForKeys: nil
+                ).filter { $0.pathExtension == "sqlite" || $0.pathExtension == "sqlite-shm" || $0.pathExtension == "sqlite-wal" }
+
+                dbFiles?.forEach { file in
+                    try? FileManager.default.removeItem(at: file)
+                    print("Deleted database file: \(file.lastPathComponent)")
+                }
+            }
+
+            // Try creating the container again
+            do {
+                return try ModelContainer(for: schema, configurations: [modelConfiguration])
+            } catch {
+                fatalError("Could not create ModelContainer after reset: \(error)")
+            }
         }
     }()
 

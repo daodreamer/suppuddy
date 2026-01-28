@@ -48,7 +48,7 @@ enum UserType: Codable, Hashable, Sendable {
         case child
     }
 
-    init(from decoder: Decoder) throws {
+    nonisolated init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let type = try container.decode(TypeIdentifier.self, forKey: .type)
 
@@ -63,7 +63,7 @@ enum UserType: Codable, Hashable, Sendable {
         }
     }
 
-    func encode(to encoder: Encoder) throws {
+    nonisolated func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
 
         switch self {

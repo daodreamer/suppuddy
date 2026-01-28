@@ -27,7 +27,7 @@ final class Supplement {
     var servingsPerDay: Int
 
     /// Encoded nutrients data for SwiftData persistence
-    @Attribute(.transformable(by: "NSSecureUnarchiveFromDataTransformer"))
+    @Attribute(.externalStorage)
     private var nutrientsData: Data?
 
     /// Optional notes about the supplement

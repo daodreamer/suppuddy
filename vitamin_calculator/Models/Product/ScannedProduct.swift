@@ -9,7 +9,7 @@ import Foundation
 
 /// Represents a product scanned from an external API (e.g., Open Food Facts).
 /// Contains product information and nutritional data that can be converted to local models.
-struct ScannedProduct: Codable, Hashable, Sendable {
+struct ScannedProduct: Hashable, Sendable {
     // MARK: - Properties
 
     /// The barcode/EAN of the product
@@ -56,6 +56,38 @@ struct ScannedProduct: Codable, Hashable, Sendable {
         self.nutrients = nutrients
     }
 
+    // MARK: - Codable Conformance
+
+    enum CodingKeys: String, CodingKey {
+        case barcode
+        case name
+        case brand
+        case imageUrl
+        case servingSize
+        case nutrients
+    }
+
+    nonisolated init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.barcode = try container.decode(String.self, forKey: .barcode)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.brand = try container.decodeIfPresent(String.self, forKey: .brand)
+        self.imageUrl = try container.decodeIfPresent(String.self, forKey: .imageUrl)
+        self.servingSize = try container.decodeIfPresent(String.self, forKey: .servingSize)
+        self.nutrients = try container.decode([ScannedNutrient].self, forKey: .nutrients)
+    }
+
+    nonisolated func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(barcode, forKey: .barcode)
+        try container.encode(name, forKey: .name)
+        try container.encodeIfPresent(brand, forKey: .brand)
+        try container.encodeIfPresent(imageUrl, forKey: .imageUrl)
+        try container.encodeIfPresent(servingSize, forKey: .servingSize)
+        try container.encode(nutrients, forKey: .nutrients)
+    }
+}
+
     // MARK: - Conversion Methods
 
     /// Converts the scanned nutrients to local Nutrient models
@@ -66,9 +98,12 @@ struct ScannedProduct: Codable, Hashable, Sendable {
     }
 }
 
+// MARK: - Codable Conformance
+extension ScannedProduct: Codable {}
+
 /// Represents a single nutrient from an external API.
 /// Can be mapped to a local NutrientType if recognized.
-struct ScannedNutrient: Codable, Hashable, Sendable {
+struct ScannedNutrient: Hashable, Sendable {
     // MARK: - Properties
 
     /// Nutrient name as provided by the external API
@@ -91,6 +126,28 @@ struct ScannedNutrient: Codable, Hashable, Sendable {
         self.name = name
         self.amount = amount
         self.unit = unit
+    }
+
+    // MARK: - Codable Conformance
+
+    enum CodingKeys: String, CodingKey {
+        case name
+        case amount
+        case unit
+    }
+
+    nonisolated init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.amount = try container.decode(Double.self, forKey: .amount)
+        self.unit = try container.decode(String.self, forKey: .unit)
+    }
+
+    nonisolated func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(name, forKey: .name)
+        try container.encode(amount, forKey: .amount)
+        try container.encode(unit, forKey: .unit)
     }
 
     // MARK: - Conversion Methods
@@ -169,3 +226,6 @@ struct ScannedNutrient: Codable, Hashable, Sendable {
         }
     }
 }
+// MARK: - Codable Conformance
+extension ScannedNutrient: Codable {}
+

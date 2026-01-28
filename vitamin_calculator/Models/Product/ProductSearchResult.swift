@@ -9,7 +9,7 @@ import Foundation
 
 /// Represents a paginated search result from a product database API.
 /// Contains the list of products for the current page and pagination metadata.
-struct ProductSearchResult: Codable, Sendable {
+struct ProductSearchResult: Sendable {
     // MARK: - Properties
 
     /// The list of products in the current page
@@ -50,4 +50,33 @@ struct ProductSearchResult: Codable, Sendable {
         self.page = page
         self.pageSize = pageSize
     }
+
+    // MARK: - Codable Conformance
+
+    enum CodingKeys: String, CodingKey {
+        case products
+        case totalCount
+        case page
+        case pageSize
+    }
+
+    nonisolated init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.products = try container.decode([ScannedProduct].self, forKey: .products)
+        self.totalCount = try container.decode(Int.self, forKey: .totalCount)
+        self.page = try container.decode(Int.self, forKey: .page)
+        self.pageSize = try container.decode(Int.self, forKey: .pageSize)
+    }
+
+    nonisolated func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(products, forKey: .products)
+        try container.encode(totalCount, forKey: .totalCount)
+        try container.encode(page, forKey: .page)
+        try container.encode(pageSize, forKey: .pageSize)
+    }
 }
+// MARK: - Codable Conformance
+extension ProductSearchResult: Codable {}
+
+

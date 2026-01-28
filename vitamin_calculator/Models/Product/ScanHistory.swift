@@ -39,7 +39,7 @@ final class ScanHistory {
     // MARK: - Computed Properties
 
     /// The cached product data from the scan
-    nonisolated var cachedProduct: ScannedProduct? {
+    var cachedProduct: ScannedProduct? {
         get {
             guard let data = productData,
                   let decoded = try? JSONDecoder().decode(ScannedProduct.self, from: data) else {

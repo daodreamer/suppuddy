@@ -38,8 +38,21 @@ final class SupplementRepository {
     /// - Parameter supplement: The supplement to save
     /// - Throws: SwiftData errors if save fails
     func save(_ supplement: Supplement) async throws {
+        // Ensure nutrients are properly encoded before insertion
+        // This triggers the setter which encodes the nutrients data
+        let nutrients = supplement.nutrients
+        supplement.nutrients = nutrients
+
         modelContext.insert(supplement)
-        try modelContext.save()
+
+        // Force save the context to persist the changes
+        do {
+            try modelContext.save()
+        } catch {
+            // If save fails, remove the supplement from context
+            modelContext.delete(supplement)
+            throw error
+        }
     }
 
     // MARK: - Read
@@ -100,6 +113,11 @@ final class SupplementRepository {
     /// - Throws: SwiftData errors if update fails
     func update(_ supplement: Supplement) async throws {
         supplement.updatedAt = Date()
+
+        // Ensure nutrients are properly re-encoded after update
+        let nutrients = supplement.nutrients
+        supplement.nutrients = nutrients
+
         try modelContext.save()
     }
 

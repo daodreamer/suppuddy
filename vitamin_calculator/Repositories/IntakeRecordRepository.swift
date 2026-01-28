@@ -42,7 +42,7 @@ final class IntakeRecordRepository {
     /// - Returns: Array of all intake records, sorted by date (newest first)
     /// - Throws: SwiftData errors if fetch fails
     func getAll() async throws -> [IntakeRecord] {
-        var descriptor = FetchDescriptor<IntakeRecord>(
+        let descriptor = FetchDescriptor<IntakeRecord>(
             sortBy: [SortDescriptor(\.date, order: .reverse)]
         )
         // Performance optimization: Limit result set if needed

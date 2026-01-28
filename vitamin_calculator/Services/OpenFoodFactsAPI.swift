@@ -174,20 +174,20 @@ actor OpenFoodFactsAPI {
 
     // MARK: - Helper Methods
 
-    /// Decodes product data in a nonisolated context to avoid actor isolation issues
+    /// Decodes product data
     /// - Parameter data: The JSON data to decode
     /// - Returns: Decoded ScannedProduct
     /// - Throws: DecodingError if decoding fails
-    private nonisolated func decodeProduct(from data: Data) throws -> ScannedProduct {
+    private func decodeProduct(from data: Data) throws -> ScannedProduct {
         let decoder = JSONDecoder()
         return try decoder.decode(ScannedProduct.self, from: data)
     }
 
-    /// Decodes search result data in a nonisolated context to avoid actor isolation issues
+    /// Decodes search result data
     /// - Parameter data: The JSON data to decode
     /// - Returns: Decoded ProductSearchResult
     /// - Throws: DecodingError if decoding fails
-    private nonisolated func decodeSearchResult(from data: Data) throws -> ProductSearchResult {
+    private func decodeSearchResult(from data: Data) throws -> ProductSearchResult {
         let decoder = JSONDecoder()
         return try decoder.decode(ProductSearchResult.self, from: data)
     }

@@ -400,6 +400,8 @@
 				DEVELOPMENT_TEAM = A444W4Z6AP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "vitamin-calculator-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "需要相机权限以扫描产品条形码，快速添加补剂产品";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -432,6 +434,8 @@
 				DEVELOPMENT_TEAM = A444W4Z6AP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "vitamin-calculator-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "需要相机权限以扫描产品条形码，快速添加补剂产品";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

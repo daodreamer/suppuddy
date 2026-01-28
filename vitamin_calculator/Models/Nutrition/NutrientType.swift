@@ -86,58 +86,11 @@ enum NutrientType: String, CaseIterable, Codable, Hashable, Sendable {
     // MARK: - Properties
 
     /// Returns the localized name of the nutrient
+    /// Uses the String Catalog (Localizable.xcstrings) for proper localization in de, en, and zh-Hans
     var localizedName: String {
-        switch self {
-        // Vitamins
-        case .vitaminA:
-            return NSLocalizedString("Vitamin A", comment: "Vitamin A")
-        case .vitaminD:
-            return NSLocalizedString("Vitamin D", comment: "Vitamin D")
-        case .vitaminE:
-            return NSLocalizedString("Vitamin E", comment: "Vitamin E")
-        case .vitaminK:
-            return NSLocalizedString("Vitamin K", comment: "Vitamin K")
-        case .vitaminC:
-            return NSLocalizedString("Vitamin C", comment: "Vitamin C")
-        case .vitaminB1:
-            return NSLocalizedString("Vitamin B1 (Thiamin)", comment: "Vitamin B1")
-        case .vitaminB2:
-            return NSLocalizedString("Vitamin B2 (Riboflavin)", comment: "Vitamin B2")
-        case .vitaminB3:
-            return NSLocalizedString("Vitamin B3 (Niacin)", comment: "Vitamin B3")
-        case .vitaminB6:
-            return NSLocalizedString("Vitamin B6 (Pyridoxin)", comment: "Vitamin B6")
-        case .vitaminB12:
-            return NSLocalizedString("Vitamin B12 (Cobalamin)", comment: "Vitamin B12")
-        case .folate:
-            return NSLocalizedString("Folate", comment: "Folate")
-        case .biotin:
-            return NSLocalizedString("Biotin", comment: "Biotin")
-        case .pantothenicAcid:
-            return NSLocalizedString("Pantothenic Acid", comment: "Pantothenic Acid")
-
-        // Minerals
-        case .calcium:
-            return NSLocalizedString("Calcium", comment: "Calcium")
-        case .magnesium:
-            return NSLocalizedString("Magnesium", comment: "Magnesium")
-        case .iron:
-            return NSLocalizedString("Iron", comment: "Iron")
-        case .zinc:
-            return NSLocalizedString("Zinc", comment: "Zinc")
-        case .selenium:
-            return NSLocalizedString("Selenium", comment: "Selenium")
-        case .iodine:
-            return NSLocalizedString("Iodine", comment: "Iodine")
-        case .copper:
-            return NSLocalizedString("Copper", comment: "Copper")
-        case .manganese:
-            return NSLocalizedString("Manganese", comment: "Manganese")
-        case .chromium:
-            return NSLocalizedString("Chromium", comment: "Chromium")
-        case .molybdenum:
-            return NSLocalizedString("Molybdenum", comment: "Molybdenum")
-        }
+        // Use the nutrient_ prefix to access String Catalog keys
+        let key = "nutrient_\(self.rawValue)"
+        return NSLocalizedString(key, comment: "")
     }
 
     /// Returns the unit of measurement for the nutrient

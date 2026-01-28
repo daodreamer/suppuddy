@@ -30,6 +30,8 @@ struct SupplementListView: View {
                     Button(action: { showingAddForm = true }) {
                         Image(systemName: "plus")
                     }
+                    .accessibilityLabel(AccessibilityHelper.supplementAddButton)
+                    .accessibilityHint("点击添加新的补剂")
                 }
                 ToolbarItem(placement: .secondaryAction) {
                     Menu {
@@ -37,6 +39,8 @@ struct SupplementListView: View {
                     } label: {
                         Image(systemName: "arrow.up.arrow.down")
                     }
+                    .accessibilityLabel(AccessibilityHelper.supplementSortButton)
+                    .accessibilityHint("选择补剂排序方式")
                 }
             }
             .sheet(isPresented: $showingAddForm) {
@@ -86,12 +90,16 @@ struct SupplementListView: View {
                         } label: {
                             Label("Delete", systemImage: "trash")
                         }
+                        .accessibilityLabel(AccessibilityHelper.supplementDeleteAction)
+                        .accessibilityHint("删除补剂 \(supplement.name)")
                         Button {
                             selectedSupplement = supplement
                         } label: {
                             Label("Edit", systemImage: "pencil")
                         }
                         .tint(.blue)
+                        .accessibilityLabel(AccessibilityHelper.supplementEditAction)
+                        .accessibilityHint("编辑补剂 \(supplement.name)")
                     }
                     .swipeActions(edge: .leading) {
                         Button {
@@ -103,6 +111,8 @@ struct SupplementListView: View {
                             )
                         }
                         .tint(supplement.isActive ? .orange : .green)
+                        .accessibilityLabel(supplement.isActive ? AccessibilityHelper.supplementDeactivateAction : AccessibilityHelper.supplementActivateAction)
+                        .accessibilityHint(supplement.isActive ? "暂停使用补剂 \(supplement.name)" : "恢复使用补剂 \(supplement.name)")
                     }
                 }
             }
@@ -184,6 +194,7 @@ struct SupplementRowView: View {
             if !supplement.isActive {
                 Image(systemName: "moon.zzz.fill")
                     .foregroundColor(.secondary)
+                    .accessibilityHidden(true)
             }
 
             Text("\(supplement.nutrients.count)")
@@ -192,7 +203,17 @@ struct SupplementRowView: View {
                 .padding(.vertical, 4)
                 .background(Color.accentColor.opacity(0.2))
                 .clipShape(Capsule())
+                .accessibilityHidden(true)
         }
         .opacity(supplement.isActive ? 1.0 : 0.6)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel(AccessibilityHelper.supplementRowLabel(
+            name: supplement.name,
+            brand: supplement.brand,
+            servingSize: supplement.servingSize,
+            servingsPerDay: supplement.servingsPerDay,
+            nutrientCount: supplement.nutrients.count,
+            isActive: supplement.isActive
+        ))
     }
 }

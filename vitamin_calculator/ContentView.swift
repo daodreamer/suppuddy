@@ -21,6 +21,8 @@ struct ContentView: View {
                     Label("首页", systemImage: "house.fill")
                 }
                 .tag(0)
+                .accessibilityLabel(AccessibilityHelper.tabDashboard)
+                .accessibilityHint(AccessibilityHelper.tabDashboardHint)
 
             // Intake Record tab - loaded lazily when first accessed
             LazyTabView(selectedTab: $selectedTab, tag: 1) {
@@ -30,6 +32,8 @@ struct ContentView: View {
                 Label("记录", systemImage: "plus.circle.fill")
             }
             .tag(1)
+            .accessibilityLabel(AccessibilityHelper.tabRecord)
+            .accessibilityHint(AccessibilityHelper.tabRecordHint)
 
             // Supplements tab - loaded lazily when first accessed
             LazyTabView(selectedTab: $selectedTab, tag: 2) {
@@ -39,6 +43,8 @@ struct ContentView: View {
                 Label("补剂", systemImage: "pills.fill")
             }
             .tag(2)
+            .accessibilityLabel(AccessibilityHelper.tabSupplements)
+            .accessibilityHint(AccessibilityHelper.tabSupplementsHint)
 
             // History tab - loaded lazily when first accessed
             LazyTabView(selectedTab: $selectedTab, tag: 3) {
@@ -48,6 +54,8 @@ struct ContentView: View {
                 Label("历史", systemImage: "calendar")
             }
             .tag(3)
+            .accessibilityLabel(AccessibilityHelper.tabHistory)
+            .accessibilityHint(AccessibilityHelper.tabHistoryHint)
 
             // Profile tab - loaded lazily when first accessed
             LazyTabView(selectedTab: $selectedTab, tag: 4) {
@@ -57,6 +65,8 @@ struct ContentView: View {
                 Label("我的", systemImage: "person.fill")
             }
             .tag(4)
+            .accessibilityLabel(AccessibilityHelper.tabProfile)
+            .accessibilityHint(AccessibilityHelper.tabProfileHint)
         }
     }
 }

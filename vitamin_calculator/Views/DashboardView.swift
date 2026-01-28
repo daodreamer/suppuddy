@@ -71,21 +71,27 @@ struct DashboardView: View {
 
 struct TodaySummaryCard: View {
     let summary: DailyIntakeSummary?
+    @ScaledMetric private var spacing: CGFloat = 12
+    @ScaledMetric private var iconSize: CGFloat = 20
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: spacing) {
             HStack {
                 Image(systemName: "calendar")
+                    .font(.system(size: iconSize))
                     .foregroundStyle(.blue)
+                    .accessibilityHidden(true)
                 Text(formattedDate)
                     .font(.headline)
                 Spacer()
             }
+            .accessibilityElement(children: .combine)
+            .accessibilityLabel("日期：\(formattedDate)")
 
             Divider()
 
             if let summary = summary {
-                HStack(spacing: 24) {
+                HStack(spacing: spacing * 2) {
                     StatItem(
                         title: "摄入记录",
                         value: "\(summary.recordCount)",
@@ -100,16 +106,24 @@ struct TodaySummaryCard: View {
                         color: .green
                     )
                 }
+                .accessibilityElement(children: .combine)
+                .accessibilityLabel(AccessibilityHelper.todaySummaryLabel(
+                    recordCount: summary.recordCount,
+                    nutrientCount: summary.coveredNutrients.count
+                ))
             } else {
                 Text("今日暂无摄入记录")
+                    .font(.body)
                     .foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity, alignment: .center)
-                    .padding(.vertical, 8)
+                    .padding(.vertical, spacing)
+                    .accessibilityLabel("今日尚无摄入记录")
+                    .accessibilityHint(AccessibilityHelper.emptyRecordsHint)
             }
         }
-        .padding()
+        .padding(spacing)
         .background(Color(.systemBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .clipShape(RoundedRectangle(cornerRadius: spacing))
         .shadow(color: .black.opacity(0.1), radius: 5, x: 0, y: 2)
     }
 
@@ -127,11 +141,16 @@ struct StatItem: View {
     let icon: String
     let color: Color
 
+    @ScaledMetric private var spacing: CGFloat = 4
+    @ScaledMetric private var minHeight: CGFloat = 60
+
     var body: some View {
-        VStack(spacing: 4) {
+        VStack(spacing: spacing) {
             Image(systemName: icon)
                 .font(.title2)
+                .imageScale(.large)
                 .foregroundStyle(color)
+                .accessibilityHidden(true)
 
             Text(value)
                 .font(.title)
@@ -141,7 +160,9 @@ struct StatItem: View {
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }
-        .frame(maxWidth: .infinity)
+        .frame(maxWidth: .infinity, minHeight: minHeight)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(title)：\(value)")
     }
 }
 
@@ -188,10 +209,19 @@ struct NutrientProgressSection: View {
 }
 
 // Sprint 7 Phase 1: Optimized with Equatable to reduce redraws
+// Sprint 7 Phase 2: Added VoiceOver accessibility, dynamic font, and reduce motion support
 struct NutrientProgressRing: View, Equatable {
     let nutrient: NutrientType
     let summary: DailyIntakeSummary
     let userType: UserType
+
+    @ScaledMetric private var ringSize: CGFloat = 60
+    @ScaledMetric private var lineWidth: CGFloat = 8
+    @ScaledMetric private var spacing: CGFloat = 8
+    @ScaledMetric private var padding: CGFloat = 8
+    @ScaledMetric private var cornerRadius: CGFloat = 8
+
+    @Environment(\.accessibilityReduceMotion) var reduceMotion
 
     private var percentage: Double {
         summary.completionPercentage(for: nutrient, userType: userType)
@@ -204,44 +234,52 @@ struct NutrientProgressRing: View, Equatable {
     private var statusColor: Color {
         switch status {
         case .none:
-            return .gray
+            return AccessibleColors.nutrientNone
         case .insufficient:
-            return .orange
+            return AccessibleColors.nutrientInsufficient
         case .normal:
-            return .green
+            return AccessibleColors.nutrientNormal
         case .excessive:
-            return .red
+            return AccessibleColors.nutrientExcessive
         }
     }
 
     var body: some View {
-        VStack(spacing: 8) {
+        VStack(spacing: spacing) {
             ZStack {
                 Circle()
-                    .stroke(Color.gray.opacity(0.2), lineWidth: 8)
+                    .stroke(Color.gray.opacity(0.2), lineWidth: lineWidth)
 
                 Circle()
                     .trim(from: 0, to: min(percentage / 100, 1.0))
-                    .stroke(statusColor, style: StrokeStyle(lineWidth: 8, lineCap: .round))
+                    .stroke(statusColor, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
                     .rotationEffect(.degrees(-90))
-                    .animation(.easeInOut, value: percentage)
+                    .animationAccessible(.easeInOut, value: percentage)
 
                 VStack(spacing: 2) {
                     Text("\(Int(min(percentage, 999)))%")
-                        .font(.system(.caption, design: .rounded))
+                        .font(.caption)
                         .fontWeight(.bold)
                 }
             }
-            .frame(width: 60, height: 60)
+            .frame(width: ringSize, height: ringSize)
+            .accessibilityHidden(true)
 
             Text(nutrient.localizedName)
                 .font(.caption)
-                .lineLimit(1)
+                .lineLimit(2)
+                .multilineTextAlignment(.center)
                 .foregroundStyle(.primary)
+                .accessibilityHidden(true)
         }
-        .padding(8)
+        .padding(padding)
+        .frame(minHeight: ringSize + spacing + 40)
         .background(Color(.secondarySystemBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(AccessibilityHelper.nutrientProgressLabel(nutrient: nutrient, percentage: percentage))
+        .accessibilityHint(AccessibilityHelper.nutrientProgressHint(percentage: percentage))
+        .accessibilityAddTraits(.isButton)
     }
 
     // Equatable implementation to avoid unnecessary redraws
@@ -257,8 +295,12 @@ struct NutrientProgressRing: View, Equatable {
 struct HealthTipsSection: View {
     let tips: [HealthTip]
 
+    @ScaledMetric private var spacing: CGFloat = 12
+    @ScaledMetric private var padding: CGFloat = 16
+    @ScaledMetric private var cornerRadius: CGFloat = 12
+
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: spacing) {
             Text("健康提示")
                 .font(.headline)
 
@@ -266,15 +308,20 @@ struct HealthTipsSection: View {
                 HealthTipCard(tip: tip)
             }
         }
-        .padding()
+        .padding(padding)
         .background(Color(.systemBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
         .shadow(color: .black.opacity(0.1), radius: 5, x: 0, y: 2)
     }
 }
 
 struct HealthTipCard: View {
     let tip: HealthTip
+
+    @ScaledMetric private var spacing: CGFloat = 12
+    @ScaledMetric private var innerSpacing: CGFloat = 4
+    @ScaledMetric private var padding: CGFloat = 12
+    @ScaledMetric private var cornerRadius: CGFloat = 8
 
     private var icon: String {
         switch tip.type {
@@ -290,21 +337,23 @@ struct HealthTipCard: View {
     private var iconColor: Color {
         switch tip.type {
         case .warning:
-            return .red
+            return AccessibleColors.error
         case .suggestion:
-            return .orange
+            return AccessibleColors.warning
         case .info:
-            return .blue
+            return AccessibleColors.info
         }
     }
 
     var body: some View {
-        HStack(alignment: .top, spacing: 12) {
+        HStack(alignment: .top, spacing: spacing) {
             Image(systemName: icon)
                 .foregroundStyle(iconColor)
                 .font(.title3)
+                .imageScale(.large)
+                .accessibilityHidden(true)
 
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: innerSpacing) {
                 if let nutrient = tip.nutrient {
                     Text(nutrient.localizedName)
                         .font(.caption)
@@ -312,13 +361,20 @@ struct HealthTipCard: View {
                 }
                 Text(tip.message)
                     .font(.subheadline)
+                    .fixedSize(horizontal: false, vertical: true)
             }
 
             Spacer()
         }
-        .padding()
+        .padding(padding)
         .background(iconColor.opacity(0.1))
-        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel(AccessibilityHelper.healthTipLabel(
+            type: tip.type,
+            nutrient: tip.nutrient,
+            message: tip.message
+        ))
     }
 }
 

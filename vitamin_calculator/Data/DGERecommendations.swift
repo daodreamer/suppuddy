@@ -46,17 +46,33 @@ struct DGERecommendations {
     /// Retrieves the pregnancy recommendation for a specific nutrient
     /// - Parameter nutrient: The nutrient type
     /// - Returns: A DailyRecommendation for pregnancy, or nil if no special recommendation exists
+    /// - Note: Based on DGE 2025/2026 reference values
     static func getPregnancyRecommendation(for nutrient: NutrientType) -> DailyRecommendation? {
         switch nutrient {
-        // Nutrients with specific pregnancy recommendations
+        // Vitamins with specific pregnancy recommendations
         case .folate:
             return DailyRecommendation(nutrientType: nutrient, recommendedAmount: 550, upperLimit: 1000, userType: .female)
+        case .vitaminD:
+            return DailyRecommendation(nutrientType: nutrient, recommendedAmount: 20, upperLimit: 100, userType: .female)
+        case .vitaminE:
+            return DailyRecommendation(nutrientType: nutrient, recommendedAmount: 8, upperLimit: 300, userType: .female)
+        case .vitaminB6:
+            return DailyRecommendation(nutrientType: nutrient, recommendedAmount: 1.9, upperLimit: 25, userType: .female)
+        case .vitaminB12:
+            return DailyRecommendation(nutrientType: nutrient, recommendedAmount: 4.5, upperLimit: nil, userType: .female)
+
+        // Minerals with specific pregnancy recommendations
         case .iron:
             return DailyRecommendation(nutrientType: nutrient, recommendedAmount: 30, upperLimit: 45, userType: .female)
         case .iodine:
-            return DailyRecommendation(nutrientType: nutrient, recommendedAmount: 230, upperLimit: 500, userType: .female)
-        case .vitaminD:
-            return DailyRecommendation(nutrientType: nutrient, recommendedAmount: 20, upperLimit: 100, userType: .female)
+            return DailyRecommendation(nutrientType: nutrient, recommendedAmount: 220, upperLimit: 500, userType: .female)
+        case .calcium:
+            return DailyRecommendation(nutrientType: nutrient, recommendedAmount: 1000, upperLimit: 2500, userType: .female)
+        case .magnesium:
+            return DailyRecommendation(nutrientType: nutrient, recommendedAmount: 310, upperLimit: 250, userType: .female)
+        case .zinc:
+            return DailyRecommendation(nutrientType: nutrient, recommendedAmount: 11, upperLimit: 40, userType: .female)
+
         default:
             return nil // No special pregnancy recommendation for this nutrient
         }
@@ -65,17 +81,33 @@ struct DGERecommendations {
     /// Retrieves the breastfeeding recommendation for a specific nutrient
     /// - Parameter nutrient: The nutrient type
     /// - Returns: A DailyRecommendation for breastfeeding, or nil if no special recommendation exists
+    /// - Note: Based on DGE 2025/2026 reference values
     static func getBreastfeedingRecommendation(for nutrient: NutrientType) -> DailyRecommendation? {
         switch nutrient {
-        // Nutrients with specific breastfeeding recommendations
+        // Vitamins with specific breastfeeding recommendations
         case .folate:
             return DailyRecommendation(nutrientType: nutrient, recommendedAmount: 450, upperLimit: 1000, userType: .female)
+        case .vitaminD:
+            return DailyRecommendation(nutrientType: nutrient, recommendedAmount: 20, upperLimit: 100, userType: .female)
+        case .vitaminE:
+            return DailyRecommendation(nutrientType: nutrient, recommendedAmount: 13, upperLimit: 300, userType: .female)
+        case .vitaminB6:
+            return DailyRecommendation(nutrientType: nutrient, recommendedAmount: 1.6, upperLimit: 25, userType: .female)
+        case .vitaminB12:
+            return DailyRecommendation(nutrientType: nutrient, recommendedAmount: 5.5, upperLimit: nil, userType: .female)
+
+        // Minerals with specific breastfeeding recommendations
         case .iron:
             return DailyRecommendation(nutrientType: nutrient, recommendedAmount: 20, upperLimit: 45, userType: .female)
         case .iodine:
-            return DailyRecommendation(nutrientType: nutrient, recommendedAmount: 260, upperLimit: 500, userType: .female)
-        case .vitaminD:
-            return DailyRecommendation(nutrientType: nutrient, recommendedAmount: 20, upperLimit: 100, userType: .female)
+            return DailyRecommendation(nutrientType: nutrient, recommendedAmount: 230, upperLimit: 500, userType: .female)
+        case .calcium:
+            return DailyRecommendation(nutrientType: nutrient, recommendedAmount: 1000, upperLimit: 2500, userType: .female)
+        case .magnesium:
+            return DailyRecommendation(nutrientType: nutrient, recommendedAmount: 390, upperLimit: 250, userType: .female)
+        case .zinc:
+            return DailyRecommendation(nutrientType: nutrient, recommendedAmount: 13, upperLimit: 40, userType: .female)
+
         default:
             return nil // No special breastfeeding recommendation for this nutrient
         }

@@ -316,8 +316,8 @@ struct RecommendationServiceTests {
             #expect(pregnantRec != nil)
             #expect(normalRec != nil)
             #expect(pregnantRec?.recommendedAmount ?? 0 > normalRec?.recommendedAmount ?? 0)
-            #expect(pregnantRec?.recommendedAmount == 230.0,
-                   "Pregnant iodine recommendation should be 230 μg")
+            #expect(pregnantRec?.recommendedAmount == 220.0,
+                   "Pregnant iodine recommendation should be 220 μg (DGE 2025/2026 update)")
         }
 
         @Test("Service should return higher folate recommendation for breastfeeding user")
@@ -376,8 +376,8 @@ struct RecommendationServiceTests {
             #expect(breastfeedingRec != nil)
             #expect(normalRec != nil)
             #expect(breastfeedingRec?.recommendedAmount ?? 0 > normalRec?.recommendedAmount ?? 0)
-            #expect(breastfeedingRec?.recommendedAmount == 260.0,
-                   "Breastfeeding iodine recommendation should be 260 μg")
+            #expect(breastfeedingRec?.recommendedAmount == 230.0,
+                   "Breastfeeding iodine recommendation should be 230 μg (DGE 2025/2026 update)")
         }
 
         @Test("Service should return normal recommendation when specialNeeds is none")
@@ -439,6 +439,224 @@ struct RecommendationServiceTests {
 
             #expect(normalFolate?.recommendedAmount == 300.0)
             #expect(pregnantFolate?.recommendedAmount == 550.0)
+        }
+
+        // MARK: - Extended DGE Data Tests (Sprint 6 - Phase 6)
+
+        @Test("Service should return vitamin E recommendation for pregnant user")
+        func testPregnantVitaminERecommendation() {
+            // Arrange
+            let service = RecommendationService()
+            let pregnantUser = UserProfile(name: "Pregnant", userType: .female)
+            pregnantUser.specialNeeds = .pregnant
+
+            // Act
+            let pregnantRec = service.getRecommendation(for: .vitaminE, user: pregnantUser)
+
+            // Assert
+            #expect(pregnantRec != nil)
+            #expect(pregnantRec?.recommendedAmount == 8.0,
+                   "Pregnant vitamin E recommendation should be 8 mg (DGE 2025/2026)")
+        }
+
+        @Test("Service should return vitamin E recommendation for breastfeeding user")
+        func testBreastfeedingVitaminERecommendation() {
+            // Arrange
+            let service = RecommendationService()
+            let breastfeedingUser = UserProfile(name: "Breastfeeding", userType: .female)
+            breastfeedingUser.specialNeeds = .breastfeeding
+
+            // Act
+            let breastfeedingRec = service.getRecommendation(for: .vitaminE, user: breastfeedingUser)
+
+            // Assert
+            #expect(breastfeedingRec != nil)
+            #expect(breastfeedingRec?.recommendedAmount == 13.0,
+                   "Breastfeeding vitamin E recommendation should be 13 mg (DGE 2025/2026)")
+        }
+
+        @Test("Service should return vitamin B6 recommendation for pregnant user")
+        func testPregnantVitaminB6Recommendation() {
+            // Arrange
+            let service = RecommendationService()
+            let normalUser = UserProfile(name: "Normal", userType: .female)
+            let pregnantUser = UserProfile(name: "Pregnant", userType: .female)
+            pregnantUser.specialNeeds = .pregnant
+
+            // Act
+            let normalRec = service.getRecommendation(for: .vitaminB6, user: normalUser)
+            let pregnantRec = service.getRecommendation(for: .vitaminB6, user: pregnantUser)
+
+            // Assert
+            #expect(pregnantRec != nil)
+            #expect(normalRec != nil)
+            #expect(pregnantRec?.recommendedAmount ?? 0 > normalRec?.recommendedAmount ?? 0)
+            #expect(pregnantRec?.recommendedAmount == 1.9,
+                   "Pregnant vitamin B6 recommendation should be 1.9 mg")
+        }
+
+        @Test("Service should return vitamin B6 recommendation for breastfeeding user")
+        func testBreastfeedingVitaminB6Recommendation() {
+            // Arrange
+            let service = RecommendationService()
+            let normalUser = UserProfile(name: "Normal", userType: .female)
+            let breastfeedingUser = UserProfile(name: "Breastfeeding", userType: .female)
+            breastfeedingUser.specialNeeds = .breastfeeding
+
+            // Act
+            let normalRec = service.getRecommendation(for: .vitaminB6, user: normalUser)
+            let breastfeedingRec = service.getRecommendation(for: .vitaminB6, user: breastfeedingUser)
+
+            // Assert
+            #expect(breastfeedingRec != nil)
+            #expect(normalRec != nil)
+            #expect(breastfeedingRec?.recommendedAmount ?? 0 > normalRec?.recommendedAmount ?? 0)
+            #expect(breastfeedingRec?.recommendedAmount == 1.6,
+                   "Breastfeeding vitamin B6 recommendation should be 1.6 mg")
+        }
+
+        @Test("Service should return vitamin B12 recommendation for pregnant user")
+        func testPregnantVitaminB12Recommendation() {
+            // Arrange
+            let service = RecommendationService()
+            let normalUser = UserProfile(name: "Normal", userType: .female)
+            let pregnantUser = UserProfile(name: "Pregnant", userType: .female)
+            pregnantUser.specialNeeds = .pregnant
+
+            // Act
+            let normalRec = service.getRecommendation(for: .vitaminB12, user: normalUser)
+            let pregnantRec = service.getRecommendation(for: .vitaminB12, user: pregnantUser)
+
+            // Assert
+            #expect(pregnantRec != nil)
+            #expect(normalRec != nil)
+            #expect(pregnantRec?.recommendedAmount ?? 0 > normalRec?.recommendedAmount ?? 0)
+            #expect(pregnantRec?.recommendedAmount == 4.5,
+                   "Pregnant vitamin B12 recommendation should be 4.5 μg")
+        }
+
+        @Test("Service should return vitamin B12 recommendation for breastfeeding user")
+        func testBreastfeedingVitaminB12Recommendation() {
+            // Arrange
+            let service = RecommendationService()
+            let normalUser = UserProfile(name: "Normal", userType: .female)
+            let breastfeedingUser = UserProfile(name: "Breastfeeding", userType: .female)
+            breastfeedingUser.specialNeeds = .breastfeeding
+
+            // Act
+            let normalRec = service.getRecommendation(for: .vitaminB12, user: normalUser)
+            let breastfeedingRec = service.getRecommendation(for: .vitaminB12, user: breastfeedingUser)
+
+            // Assert
+            #expect(breastfeedingRec != nil)
+            #expect(normalRec != nil)
+            #expect(breastfeedingRec?.recommendedAmount ?? 0 > normalRec?.recommendedAmount ?? 0)
+            #expect(breastfeedingRec?.recommendedAmount == 5.5,
+                   "Breastfeeding vitamin B12 recommendation should be 5.5 μg")
+        }
+
+        @Test("Service should return calcium recommendation for pregnant user")
+        func testPregnantCalciumRecommendation() {
+            // Arrange
+            let service = RecommendationService()
+            let pregnantUser = UserProfile(name: "Pregnant", userType: .female)
+            pregnantUser.specialNeeds = .pregnant
+
+            // Act
+            let pregnantRec = service.getRecommendation(for: .calcium, user: pregnantUser)
+
+            // Assert
+            #expect(pregnantRec != nil)
+            #expect(pregnantRec?.recommendedAmount == 1000.0,
+                   "Pregnant calcium recommendation should be 1000 mg")
+        }
+
+        @Test("Service should return calcium recommendation for breastfeeding user")
+        func testBreastfeedingCalciumRecommendation() {
+            // Arrange
+            let service = RecommendationService()
+            let breastfeedingUser = UserProfile(name: "Breastfeeding", userType: .female)
+            breastfeedingUser.specialNeeds = .breastfeeding
+
+            // Act
+            let breastfeedingRec = service.getRecommendation(for: .calcium, user: breastfeedingUser)
+
+            // Assert
+            #expect(breastfeedingRec != nil)
+            #expect(breastfeedingRec?.recommendedAmount == 1000.0,
+                   "Breastfeeding calcium recommendation should be 1000 mg")
+        }
+
+        @Test("Service should return magnesium recommendation for pregnant user")
+        func testPregnantMagnesiumRecommendation() {
+            // Arrange
+            let service = RecommendationService()
+            let pregnantUser = UserProfile(name: "Pregnant", userType: .female)
+            pregnantUser.specialNeeds = .pregnant
+
+            // Act
+            let pregnantRec = service.getRecommendation(for: .magnesium, user: pregnantUser)
+
+            // Assert
+            #expect(pregnantRec != nil)
+            #expect(pregnantRec?.recommendedAmount == 310.0,
+                   "Pregnant magnesium recommendation should be 310 mg")
+        }
+
+        @Test("Service should return magnesium recommendation for breastfeeding user")
+        func testBreastfeedingMagnesiumRecommendation() {
+            // Arrange
+            let service = RecommendationService()
+            let breastfeedingUser = UserProfile(name: "Breastfeeding", userType: .female)
+            breastfeedingUser.specialNeeds = .breastfeeding
+
+            // Act
+            let breastfeedingRec = service.getRecommendation(for: .magnesium, user: breastfeedingUser)
+
+            // Assert
+            #expect(breastfeedingRec != nil)
+            #expect(breastfeedingRec?.recommendedAmount == 390.0,
+                   "Breastfeeding magnesium recommendation should be 390 mg")
+        }
+
+        @Test("Service should return zinc recommendation for pregnant user")
+        func testPregnantZincRecommendation() {
+            // Arrange
+            let service = RecommendationService()
+            let normalUser = UserProfile(name: "Normal", userType: .female)
+            let pregnantUser = UserProfile(name: "Pregnant", userType: .female)
+            pregnantUser.specialNeeds = .pregnant
+
+            // Act
+            let normalRec = service.getRecommendation(for: .zinc, user: normalUser)
+            let pregnantRec = service.getRecommendation(for: .zinc, user: pregnantUser)
+
+            // Assert
+            #expect(pregnantRec != nil)
+            #expect(normalRec != nil)
+            #expect(pregnantRec?.recommendedAmount ?? 0 > normalRec?.recommendedAmount ?? 0)
+            #expect(pregnantRec?.recommendedAmount == 11.0,
+                   "Pregnant zinc recommendation should be 11 mg")
+        }
+
+        @Test("Service should return zinc recommendation for breastfeeding user")
+        func testBreastfeedingZincRecommendation() {
+            // Arrange
+            let service = RecommendationService()
+            let normalUser = UserProfile(name: "Normal", userType: .female)
+            let breastfeedingUser = UserProfile(name: "Breastfeeding", userType: .female)
+            breastfeedingUser.specialNeeds = .breastfeeding
+
+            // Act
+            let normalRec = service.getRecommendation(for: .zinc, user: normalUser)
+            let breastfeedingRec = service.getRecommendation(for: .zinc, user: breastfeedingUser)
+
+            // Assert
+            #expect(breastfeedingRec != nil)
+            #expect(normalRec != nil)
+            #expect(breastfeedingRec?.recommendedAmount ?? 0 > normalRec?.recommendedAmount ?? 0)
+            #expect(breastfeedingRec?.recommendedAmount == 13.0,
+                   "Breastfeeding zinc recommendation should be 13 mg")
         }
     }
 }

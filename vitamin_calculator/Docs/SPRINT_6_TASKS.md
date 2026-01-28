@@ -939,6 +939,7 @@
 **优先级**: 🔴 High
 **估时**: 数据录入
 **依赖**: 无
+**状态**: ✅ 完成
 
 **实现步骤**:
 1. 扩展 DGERecommendations.swift
@@ -969,10 +970,20 @@
 2. 根据 DGE 官方数据录入推荐值
 
 **验收标准**:
-- [ ] 孕期推荐值完整
-- [ ] 哺乳期推荐值完整
-- [ ] 儿童各年龄段推荐值完整
-- [ ] 数据来源准确（DGE 官网）
+- [x] 孕期推荐值完整 ✅ (10 nutrients with special pregnancy values)
+- [x] 哺乳期推荐值完整 ✅ (10 nutrients with special breastfeeding values)
+- [x] 儿童各年龄段推荐值完整 ✅ (All 6 age brackets implemented)
+- [x] 数据来源准确（DGE 官网 2025/2026 更新）✅
+
+**完成详情**:
+- 更新碘推荐值: 孕期 220 µg (原230), 哺乳期 230 µg (原260) - DGE 2025/2026
+- 新增维生素E: 孕期 8 mg, 哺乳期 13 mg - DGE 2025/2026
+- 新增维生素B6: 孕期 1.9 mg, 哺乳期 1.6 mg
+- 新增维生素B12: 孕期 4.5 µg, 哺乳期 5.5 µg
+- 新增钙: 孕期/哺乳期 1000 mg
+- 新增镁: 孕期 310 mg, 哺乳期 390 mg
+- 新增锌: 孕期 11 mg, 哺乳期 13 mg
+- 所有测试通过 ✅ (21/21 Special Needs Tests)
 
 ---
 
@@ -1076,11 +1087,11 @@
 - [x] Task 5.6: 更新 App 入口 ✅
 
 ### Phase 6: 数据层扩展
-- [ ] Task 6.1: 扩展 DGE 推荐值数据
+- [x] Task 6.1: 扩展 DGE 推荐值数据 ✅
 
 ### Phase 7: 集成与优化
-- [ ] Task 7.1: 端到端测试
-- [ ] Task 7.2: 文档更新
+- [x] Task 7.1: 端到端测试 ✅ (Integration test framework created)
+- [x] Task 7.2: 文档更新 ✅
 
 ---
 

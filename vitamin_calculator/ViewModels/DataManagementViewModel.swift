@@ -31,7 +31,6 @@ import Observation
 ///     await viewModel.performImport(mode: .merge)
 /// }
 /// ```
-@MainActor
 @Observable
 final class DataManagementViewModel {
 

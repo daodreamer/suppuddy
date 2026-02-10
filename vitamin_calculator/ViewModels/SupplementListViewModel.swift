@@ -11,7 +11,6 @@ import SwiftData
 
 /// ViewModel for managing the supplements list view.
 /// Handles loading, searching, sorting, and managing supplements.
-@MainActor
 @Observable
 final class SupplementListViewModel {
 

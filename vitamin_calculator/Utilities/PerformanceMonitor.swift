@@ -9,9 +9,10 @@
 import Foundation
 import os.signpost
 
-/// Performance monitoring utility for measuring critical app operations
+/// Performance monitoring utility for measuring critical app operations.
+/// Marked nonisolated since os_signpost is thread-safe and all properties are immutable.
 @available(iOS 17.0, *)
-final class PerformanceMonitor {
+nonisolated final class PerformanceMonitor: Sendable {
     // MARK: - Singleton
 
     static let shared = PerformanceMonitor()
@@ -72,7 +73,7 @@ extension PerformanceMonitor {
     /// - Parameters:
     ///   - name: The name of the operation
     ///   - operation: The async closure to execute and measure
-    func measureAsync<T>(_ name: StaticString, operation: () async throws -> T) async rethrows -> T {
+    func measureAsync<T>(_ name: StaticString, operation: @Sendable () async throws -> T) async rethrows -> T {
         let signpostID = begin(name)
         defer { end(name, signpostID: signpostID) }
         return try await operation()

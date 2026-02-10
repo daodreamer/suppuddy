@@ -23,7 +23,6 @@ import Observation
 /// viewModel.nextStep()
 /// await viewModel.completeOnboarding()
 /// ```
-@MainActor
 @Observable
 final class OnboardingViewModel {
 

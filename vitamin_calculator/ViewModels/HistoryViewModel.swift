@@ -26,7 +26,6 @@ enum ExportFormat: String, CaseIterable {
 }
 
 /// ViewModel for the History view, managing historical intake records and calendar data.
-@MainActor
 @Observable
 final class HistoryViewModel {
 

@@ -11,7 +11,6 @@ import Observation
 
 /// ViewModel for managing user profile data and personalized recommendations.
 /// Handles loading, updating, and saving user profile information.
-@MainActor
 @Observable
 final class UserProfileViewModel {
 

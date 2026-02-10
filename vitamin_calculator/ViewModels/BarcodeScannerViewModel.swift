@@ -39,7 +39,6 @@ protocol BarcodeScannerServiceProtocol: Sendable {
 extension BarcodeScannerService: BarcodeScannerServiceProtocol {}
 
 /// Protocol to abstract ProductLookupService for testing
-@MainActor
 protocol ProductLookupServiceProtocol {
     func lookupByBarcode(_ barcode: String) async throws -> ScannedProduct?
     func saveScanHistory(barcode: String, product: ScannedProduct?, wasSuccessful: Bool) async throws
@@ -54,7 +53,6 @@ extension ProductLookupService: ProductLookupServiceProtocol {}
 
 /// ViewModel for the barcode scanner view.
 /// Manages camera permissions, scanning state, and product lookup.
-@MainActor
 @Observable
 final class BarcodeScannerViewModel {
 

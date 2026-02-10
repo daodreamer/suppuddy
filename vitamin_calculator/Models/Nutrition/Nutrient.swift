@@ -9,7 +9,8 @@ import Foundation
 
 /// Represents a specific nutrient with its type and amount.
 /// Used to track individual nutrients in supplements and calculate total intake.
-struct Nutrient: Codable, Hashable, Sendable {
+/// Marked nonisolated since it's a pure immutable value type used across isolation boundaries.
+nonisolated struct Nutrient: Codable, Hashable, Sendable {
     // MARK: - Properties
 
     /// The type of nutrient (e.g., Vitamin C, Calcium)

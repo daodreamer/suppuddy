@@ -17,7 +17,7 @@ struct IntegrationTests {
     // MARK: - Test Helpers
 
     /// Creates a mock URLSession that returns predefined responses
-    final class MockURLSession: URLSessionProtocol {
+    final class MockURLSession: URLSessionProtocol, @unchecked Sendable {
         var mockData: Data?
         var mockResponse: HTTPURLResponse?
         var mockError: Error?

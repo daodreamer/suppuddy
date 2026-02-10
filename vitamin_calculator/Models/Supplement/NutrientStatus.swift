@@ -9,7 +9,8 @@ import Foundation
 
 /// Represents the intake status of a nutrient relative to daily recommendations.
 /// Based on DGE guidelines for nutrient intake assessment.
-enum NutrientStatus: String, CaseIterable, Codable, Hashable, Sendable {
+/// Marked nonisolated since it's a pure immutable value type used across isolation boundaries.
+nonisolated enum NutrientStatus: String, CaseIterable, Codable, Hashable, Sendable {
     /// No intake or nutrient not present in supplement
     case none
 

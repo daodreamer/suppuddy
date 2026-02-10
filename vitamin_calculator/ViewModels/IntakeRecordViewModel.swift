@@ -10,7 +10,6 @@ import SwiftData
 import Observation
 
 /// ViewModel for the Intake Record view, managing supplement selection and recording.
-@MainActor
 @Observable
 final class IntakeRecordViewModel {
 

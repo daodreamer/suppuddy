@@ -11,7 +11,6 @@ import SwiftData
 
 /// ViewModel for displaying supplement details.
 /// Provides computed properties for nutrient information and recommendations.
-@MainActor
 @Observable
 final class SupplementDetailViewModel {
 

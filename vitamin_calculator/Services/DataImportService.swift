@@ -12,7 +12,7 @@ import SwiftData
 // MARK: - Import Preview
 
 /// Preview of data to be imported, showing counts and potential conflicts
-struct ImportPreview {
+nonisolated struct ImportPreview {
     /// Number of supplements to be imported
     let supplementCount: Int
 
@@ -32,7 +32,7 @@ struct ImportPreview {
 // MARK: - Import Mode
 
 /// Mode for handling conflicts during import
-enum ImportMode {
+nonisolated enum ImportMode {
     /// Merge: Keep existing data and add new items (skip conflicts)
     case merge
 
@@ -43,7 +43,7 @@ enum ImportMode {
 // MARK: - Import Conflict
 
 /// Represents a conflict between imported data and existing data
-struct ImportConflict {
+nonisolated struct ImportConflict {
     /// Type of conflict
     let type: ConflictType
 
@@ -126,7 +126,6 @@ struct ImportValidationError {
 // MARK: - Data Import Service
 
 /// Service for importing app data from various formats (JSON, CSV)
-@MainActor
 final class DataImportService {
 
     // MARK: - Properties

@@ -131,10 +131,7 @@ struct TodaySummaryCard: View {
     }
 
     private var formattedDate: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy年M月d日 EEEE"
-        formatter.locale = Locale(identifier: "zh_CN")
-        return formatter.string(from: Date())
+        Date().formatted(.dateTime.year().month().day().weekday(.wide))
     }
 }
 

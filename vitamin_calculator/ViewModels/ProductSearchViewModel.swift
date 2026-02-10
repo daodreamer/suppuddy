@@ -3,7 +3,6 @@ import Observation
 
 /// ViewModel for the product search view.
 /// Manages product search, pagination, and result display.
-@MainActor
 @Observable
 final class ProductSearchViewModel {
 

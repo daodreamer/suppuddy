@@ -103,11 +103,7 @@ enum AccessibilityHelper {
         amount: Double,
         date: Date
     ) -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .short
-        formatter.locale = Locale(identifier: "zh_CN")
-        let dateString = formatter.string(from: date)
+        let dateString = date.formatted(date: .abbreviated, time: .shortened)
         return "\(supplementName)，摄入量：\(amount)，时间：\(dateString)"
     }
 

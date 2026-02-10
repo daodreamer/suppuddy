@@ -12,7 +12,8 @@ import Foundation
 
 /// Provides nutrient recommendations based on German DGE (Deutsche Gesellschaft für Ernährung) standards.
 /// Contains reference values for daily nutrient intake for different demographic groups.
-struct DGERecommendations {
+/// Marked nonisolated since all methods are pure computation with no mutable state.
+nonisolated struct DGERecommendations {
 
     // MARK: - Public Methods
 

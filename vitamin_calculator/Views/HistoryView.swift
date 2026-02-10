@@ -95,10 +95,7 @@ struct CalendarHeaderView: View {
     private let calendar = Calendar.current
 
     private var monthYearString: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy年M月"
-        formatter.locale = Locale(identifier: "zh_CN")
-        return formatter.string(from: currentMonth)
+        currentMonth.formatted(.dateTime.year().month())
     }
 
     var body: some View {
@@ -260,10 +257,7 @@ struct SelectedDayRecordsView: View {
     let records: [IntakeRecord]
 
     private var formattedDate: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "M月d日 EEEE"
-        formatter.locale = Locale(identifier: "zh_CN")
-        return formatter.string(from: date)
+        date.formatted(.dateTime.month().day().weekday(.wide))
     }
 
     var body: some View {
@@ -319,9 +313,7 @@ struct HistoryRecordRow: View {
     }
 
     private var formattedTime: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
-        return formatter.string(from: record.createdAt)
+        record.createdAt.formatted(date: .omitted, time: .shortened)
     }
 
     var body: some View {

@@ -12,7 +12,6 @@ extension OpenFoodFactsAPI: ProductAPIProtocol {}
 
 /// Service for looking up products from external APIs and managing scan history.
 /// Integrates OpenFoodFactsAPI with local caching via ScanHistoryRepository.
-@MainActor
 final class ProductLookupService {
 
     // MARK: - Properties

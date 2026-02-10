@@ -12,7 +12,7 @@ import Testing
 // MARK: - Mock URLSession
 
 /// Mock URL Session for testing
-final class MockURLSession: URLSessionProtocol {
+final class MockURLSession: URLSessionProtocol, @unchecked Sendable {
     var mockData: Data?
     var mockResponse: URLResponse?
     var mockError: Error?

@@ -9,7 +9,6 @@ import Foundation
 import SwiftData
 
 /// Service for exporting app data to various formats (JSON, CSV, PDF)
-@MainActor
 final class DataExportService {
 
     // MARK: - Properties
@@ -92,12 +91,13 @@ final class DataExportService {
         )
     }
 
-    /// Exports all data to a JSON file
+    /// Exports all data to a JSON file.
+    /// Data collection runs on MainActor, encoding runs concurrently off MainActor.
     /// - Returns: URL of the created JSON file
     /// - Throws: Export or file system errors
     func exportToJSON() async throws -> URL {
         let exportData = try await collectExportData()
-        let jsonData = try exportData.toJSON()
+        let jsonData = try await encodeToJSON(exportData)
 
         let fileURL = try createExportFileURL(filename: "VitaminCalculator_Export", extension: "json")
         try jsonData.write(to: fileURL)
@@ -105,12 +105,13 @@ final class DataExportService {
         return fileURL
     }
 
-    /// Exports supplements list to a CSV file
+    /// Exports supplements list to a CSV file.
+    /// Data collection runs on MainActor, CSV generation runs concurrently off MainActor.
     /// - Returns: URL of the created CSV file
     /// - Throws: Export or file system errors
     func exportSupplementsToCSV() async throws -> URL {
         let exportData = try await collectExportData()
-        let csvString = exportData.toCSV()
+        let csvString = await generateCSV(exportData)
 
         let fileURL = try createExportFileURL(filename: "Supplements_Export", extension: "csv")
         try csvString.write(to: fileURL, atomically: true, encoding: .utf8)
@@ -128,9 +129,9 @@ final class DataExportService {
         let records = try await intakeRepository.getByDateRange(from: from, to: to)
 
         var csv = "Supplement Name,Date,Time of Day,Servings Taken,Notes\n"
+        let dateFormatter = ISO8601DateFormatter()
 
         for record in records {
-            let dateFormatter = ISO8601DateFormatter()
             let dateString = dateFormatter.string(from: record.date)
             let notes = record.notes ?? ""
 
@@ -141,6 +142,25 @@ final class DataExportService {
         try csv.write(to: fileURL, atomically: true, encoding: .utf8)
 
         return fileURL
+    }
+
+    // MARK: - Concurrent Encoding (Swift 6.2)
+
+    /// Encodes export data to JSON off the MainActor for better UI responsiveness.
+    /// - Parameter exportData: The data to encode
+    /// - Returns: JSON data
+    /// - Throws: Encoding errors
+    @concurrent
+    private func encodeToJSON(_ exportData: ExportData) async throws -> Data {
+        return try exportData.toJSON()
+    }
+
+    /// Generates CSV from export data off the MainActor for better UI responsiveness.
+    /// - Parameter exportData: The data to convert
+    /// - Returns: CSV string
+    @concurrent
+    private func generateCSV(_ exportData: ExportData) async -> String {
+        return exportData.toCSV()
     }
 
     // MARK: - Private Helpers

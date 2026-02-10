@@ -10,7 +10,8 @@ import Foundation
 /// Represents different types of users for personalized nutrient recommendations.
 /// Based on German DGE (Deutsche Gesellschaft für Ernährung) standards which provide
 /// different recommendations for different demographic groups.
-enum UserType: Codable, Hashable, Sendable {
+/// Marked nonisolated since it's a pure immutable value type used across isolation boundaries.
+nonisolated enum UserType: Codable, Hashable, Sendable {
     /// Adult male
     case male
 

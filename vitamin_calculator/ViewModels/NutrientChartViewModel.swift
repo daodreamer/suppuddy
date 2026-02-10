@@ -33,7 +33,6 @@ enum TimeRange: String, CaseIterable {
 }
 
 /// ViewModel for the Nutrient Chart view, managing chart data and visualization settings.
-@MainActor
 @Observable
 final class NutrientChartViewModel {
 

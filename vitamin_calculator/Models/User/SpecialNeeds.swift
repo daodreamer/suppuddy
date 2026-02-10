@@ -9,7 +9,8 @@ import Foundation
 
 /// Represents special nutritional needs for personalized recommendations.
 /// Based on German DGE (Deutsche Gesellschaft für Ernährung) standards.
-enum SpecialNeeds: String, Codable, CaseIterable, Sendable {
+/// Marked nonisolated since it's a pure immutable value type used across isolation boundaries.
+nonisolated enum SpecialNeeds: String, Codable, CaseIterable, Sendable {
     /// No special needs
     case none = "无"
 

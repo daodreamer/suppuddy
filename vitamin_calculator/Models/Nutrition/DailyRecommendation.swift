@@ -9,7 +9,8 @@ import Foundation
 
 /// Represents the daily recommended intake for a specific nutrient and user type.
 /// Based on German DGE (Deutsche Gesellschaft für Ernährung) standards.
-struct DailyRecommendation: Codable, Hashable, Sendable {
+/// Marked nonisolated since it's a pure immutable value type used across isolation boundaries.
+nonisolated struct DailyRecommendation: Codable, Hashable, Sendable {
     // MARK: - Properties
 
     /// The type of nutrient this recommendation is for

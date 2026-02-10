@@ -9,7 +9,6 @@ import Foundation
 import SwiftData
 
 /// Service for managing the onboarding flow
-@MainActor
 final class OnboardingService {
 
     // MARK: - Properties

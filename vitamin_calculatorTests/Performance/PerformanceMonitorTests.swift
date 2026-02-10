@@ -37,14 +37,11 @@ struct PerformanceMonitorTests {
     @Test("PerformanceMonitor can measure async operations")
     func testMeasureAsyncOperation() async {
         let monitor = PerformanceMonitor.shared
-        var executed = false
 
         let result = await monitor.measureAsync("Async Test") {
-            executed = true
             return "success"
         }
 
-        #expect(executed == true)
         #expect(result == "success")
     }
 

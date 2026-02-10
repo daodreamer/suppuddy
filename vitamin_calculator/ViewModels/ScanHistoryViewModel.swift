@@ -4,7 +4,6 @@ import SwiftData
 
 /// ViewModel for the scan history view.
 /// Manages loading, displaying, and managing scan history records.
-@MainActor
 @Observable
 final class ScanHistoryViewModel {
 

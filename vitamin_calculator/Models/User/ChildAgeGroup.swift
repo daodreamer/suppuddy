@@ -9,7 +9,8 @@ import Foundation
 
 /// Represents age groups for children according to DGE recommendations.
 /// Each age group has different nutrient recommendations.
-enum ChildAgeGroup: String, Codable, CaseIterable, Sendable {
+/// Marked nonisolated since it's a pure immutable value type used across isolation boundaries.
+nonisolated enum ChildAgeGroup: String, Codable, CaseIterable, Sendable {
     /// Ages 1-3 years
     case age1to3 = "1-3岁"
 

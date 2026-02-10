@@ -10,7 +10,6 @@ import Foundation
 
 /// Manages async tasks and ensures proper cleanup
 /// Sprint 7 Phase 1: Added to prevent memory leaks from uncancelled tasks
-@MainActor
 final class TaskManager {
     private var tasks: [String: Task<Void, Never>] = [:]
 

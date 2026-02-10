@@ -3,43 +3,52 @@
 //  vitamin_calculator
 //
 //  Created by TDD on 2026-01-28.
+//  Updated: Swift 6.2 optimization - replaced GCD with AsyncStream
 //
 
 import Foundation
 import Network
 
-/// 网络状态监控器
+/// Network connectivity monitor using modern Swift Concurrency (AsyncStream).
+/// Replaces the previous GCD DispatchQueue callback pattern.
 @Observable
 final class NetworkMonitor {
-    /// 网络是否连接
+    /// Whether the network is currently connected
     var isConnected = true
 
-    /// 网络路径监控器
+    /// The underlying NWPathMonitor
     private let monitor = NWPathMonitor()
 
-    /// 监控队列
-    private let queue = DispatchQueue(label: "com.vitamin_calculator.networkmonitor")
+    /// Task managing the async monitoring loop
+    private nonisolated(unsafe) var monitoringTask: Task<Void, Never>?
 
     init() {
         startMonitoring()
     }
 
     deinit {
-        stopMonitoring()
+        monitoringTask?.cancel()
+        monitor.cancel()
     }
 
-    /// 开始监控网络状态
+    /// Starts monitoring network connectivity using AsyncStream
     private func startMonitoring() {
-        monitor.pathUpdateHandler = { [weak self] path in
-            Task { @MainActor [weak self] in
-                self?.isConnected = path.status == .satisfied
+        let monitor = self.monitor
+        let stream = AsyncStream<NWPath.Status> { continuation in
+            monitor.pathUpdateHandler = { path in
+                continuation.yield(path.status)
+            }
+            continuation.onTermination = { @Sendable _ in
+                monitor.cancel()
+            }
+            monitor.start(queue: DispatchQueue(label: "com.vitamin_calculator.networkmonitor"))
+        }
+
+        monitoringTask = Task { [weak self] in
+            for await status in stream {
+                guard !Task.isCancelled else { break }
+                self?.isConnected = status == .satisfied
             }
         }
-        monitor.start(queue: queue)
-    }
-
-    /// 停止监控网络状态
-    private func stopMonitoring() {
-        monitor.cancel()
     }
 }

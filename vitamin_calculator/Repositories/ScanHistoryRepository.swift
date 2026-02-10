@@ -10,7 +10,6 @@ import SwiftData
 
 /// Repository for managing ScanHistory data persistence using SwiftData.
 /// Provides CRUD operations for scan history with automatic pruning.
-@MainActor
 final class ScanHistoryRepository {
 
     // MARK: - Properties

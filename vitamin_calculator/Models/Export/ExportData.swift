@@ -9,8 +9,9 @@ import Foundation
 
 // MARK: - ExportData
 
-/// Main export data package containing all app data for backup/sharing
-struct ExportData: Codable {
+/// Main export data package containing all app data for backup/sharing.
+/// Marked nonisolated since it's a pure immutable value type.
+nonisolated struct ExportData: Codable {
     /// Date when this export was created
     let exportDate: Date
 
@@ -77,7 +78,7 @@ struct ExportData: Codable {
 // MARK: - ExportedUserProfile
 
 /// Simplified user profile for export
-struct ExportedUserProfile: Codable {
+nonisolated struct ExportedUserProfile: Codable {
     /// User's name
     let name: String
 
@@ -91,7 +92,7 @@ struct ExportedUserProfile: Codable {
 // MARK: - ExportedSupplement
 
 /// Simplified supplement for export
-struct ExportedSupplement: Codable {
+nonisolated struct ExportedSupplement: Codable {
     /// Supplement name
     let name: String
 
@@ -114,7 +115,7 @@ struct ExportedSupplement: Codable {
 // MARK: - ExportedNutrient
 
 /// Simplified nutrient for export
-struct ExportedNutrient: Codable {
+nonisolated struct ExportedNutrient: Codable {
     /// Nutrient name
     let name: String
 
@@ -128,7 +129,7 @@ struct ExportedNutrient: Codable {
 // MARK: - ExportedIntakeRecord
 
 /// Simplified intake record for export
-struct ExportedIntakeRecord: Codable {
+nonisolated struct ExportedIntakeRecord: Codable {
     /// Name of the supplement taken
     let supplementName: String
 
@@ -145,7 +146,7 @@ struct ExportedIntakeRecord: Codable {
 // MARK: - ExportedReminder
 
 /// Simplified reminder for export
-struct ExportedReminder: Codable {
+nonisolated struct ExportedReminder: Codable {
     /// Name of the supplement for this reminder
     let supplementName: String
 

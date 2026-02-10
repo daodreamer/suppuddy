@@ -17,7 +17,6 @@ enum SupplementSortOption {
 
 /// Repository for managing Supplement data persistence using SwiftData.
 /// Provides CRUD operations for supplements with search and sort capabilities.
-@MainActor
 final class SupplementRepository {
 
     // MARK: - Properties

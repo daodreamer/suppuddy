@@ -2,7 +2,7 @@ import Foundation
 
 /// Service for mapping external nutrient names to local NutrientType enum.
 /// Handles name normalization, unit conversion, and batch mapping operations.
-final class NutrientMappingService: Sendable {
+nonisolated final class NutrientMappingService: Sendable {
 
     // MARK: - Properties
 

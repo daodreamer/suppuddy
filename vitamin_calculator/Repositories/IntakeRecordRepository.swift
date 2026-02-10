@@ -10,7 +10,6 @@ import SwiftData
 
 /// Repository for managing IntakeRecord data persistence using SwiftData.
 /// Provides CRUD operations and specialized queries for intake records.
-@MainActor
 final class IntakeRecordRepository {
 
     // MARK: - Properties

@@ -9,7 +9,8 @@ import Foundation
 
 /// Represents different types of nutrients (vitamins and minerals) tracked by the app.
 /// Based on German DGE (Deutsche Gesellschaft für Ernährung) standards.
-enum NutrientType: String, CaseIterable, Codable, Hashable, Sendable {
+/// Marked nonisolated since it's a pure immutable value type used across isolation boundaries.
+nonisolated enum NutrientType: String, CaseIterable, Codable, Hashable, Sendable {
     // MARK: - Vitamins
 
     /// Vitamin A (Retinol)

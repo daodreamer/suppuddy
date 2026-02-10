@@ -10,7 +10,6 @@ import SwiftData
 import Observation
 
 /// ViewModel for the Dashboard view, managing today's intake summary and health tips.
-@MainActor
 @Observable
 final class DashboardViewModel {
 

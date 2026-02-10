@@ -11,7 +11,6 @@ import SwiftData
 
 /// ViewModel for the supplement creation/edit form.
 /// Handles form state, validation, and saving.
-@MainActor
 @Observable
 final class SupplementFormViewModel {
 

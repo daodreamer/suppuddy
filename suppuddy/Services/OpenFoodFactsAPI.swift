@@ -174,13 +174,15 @@ actor OpenFoodFactsAPI {
 
     // MARK: - Helper Methods
 
-    /// Decodes product data
+    /// Decodes product data from Open Food Facts single-product response.
+    /// The API wraps the product in `{"status": 1, "product": {...}}`.
     /// - Parameter data: The JSON data to decode
     /// - Returns: Decoded ScannedProduct
     /// - Throws: DecodingError if decoding fails
     private func decodeProduct(from data: Data) throws -> ScannedProduct {
         let decoder = JSONDecoder()
-        return try decoder.decode(ScannedProduct.self, from: data)
+        let wrapper = try decoder.decode(ProductWrapper.self, from: data)
+        return wrapper.product
     }
 
     /// Decodes search result data
@@ -216,5 +218,22 @@ actor OpenFoodFactsAPI {
         } catch {
             return false
         }
+    }
+}
+
+// MARK: - ProductWrapper
+
+/// Wrapper for the Open Food Facts single-product API response.
+/// The API returns `{"status": 1, "product": {...}}` for barcode lookups.
+private struct ProductWrapper: Decodable, Sendable {
+    let product: ScannedProduct
+
+    nonisolated init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.product = try container.decode(ScannedProduct.self, forKey: .product)
+    }
+
+    enum CodingKeys: String, CodingKey {
+        case product
     }
 }

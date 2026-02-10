@@ -58,23 +58,32 @@ struct ScannedProduct: Hashable, Sendable {
 
     // MARK: - Codable Conformance
 
+    /// Keys matching the Open Food Facts API v2 response format
     enum CodingKeys: String, CodingKey {
-        case barcode
-        case name
-        case brand
-        case imageUrl
-        case servingSize
-        case nutrients
+        case barcode = "code"
+        case name = "product_name"
+        case brand = "brands"
+        case imageUrl = "image_url"
+        case servingSize = "serving_size"
+        case nutriments
     }
 
     nonisolated init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.barcode = try container.decode(String.self, forKey: .barcode)
-        self.name = try container.decode(String.self, forKey: .name)
+        self.name = (try? container.decode(String.self, forKey: .name)) ?? "Unknown Product"
         self.brand = try container.decodeIfPresent(String.self, forKey: .brand)
         self.imageUrl = try container.decodeIfPresent(String.self, forKey: .imageUrl)
         self.servingSize = try container.decodeIfPresent(String.self, forKey: .servingSize)
-        self.nutrients = try container.decode([ScannedNutrient].self, forKey: .nutrients)
+
+        // Parse nutriments: try flat dictionary (API format) first, then array (internal export format)
+        if let nutrimentsDict = try? container.decode([String: AnyCodableValue].self, forKey: .nutriments) {
+            self.nutrients = ScannedProduct.parseNutriments(nutrimentsDict)
+        } else if let nutrientsArray = try? container.decode([ScannedNutrient].self, forKey: .nutriments) {
+            self.nutrients = nutrientsArray
+        } else {
+            self.nutrients = []
+        }
     }
 
     nonisolated func encode(to encoder: Encoder) throws {
@@ -84,7 +93,60 @@ struct ScannedProduct: Hashable, Sendable {
         try container.encodeIfPresent(brand, forKey: .brand)
         try container.encodeIfPresent(imageUrl, forKey: .imageUrl)
         try container.encodeIfPresent(servingSize, forKey: .servingSize)
-        try container.encode(nutrients, forKey: .nutrients)
+        // Encode nutrients as a simple array for export/import
+        var nutrimentsContainer = container.nestedUnkeyedContainer(forKey: .nutriments)
+        for nutrient in nutrients {
+            try nutrimentsContainer.encode(nutrient)
+        }
+    }
+
+    // MARK: - Nutriments Parsing
+
+    /// Parses the flat Open Food Facts nutriments dictionary into ScannedNutrient array.
+    /// The API returns keys like "vitamin-a_100g", "vitamin-a_unit", "calcium_100g", etc.
+    private nonisolated static func parseNutriments(_ dict: [String: AnyCodableValue]) -> [ScannedNutrient] {
+        // Known nutrient keys in Open Food Facts format
+        let nutrientKeys = [
+            "vitamin-a", "vitamin-d", "vitamin-e", "vitamin-k",
+            "vitamin-c", "vitamin-b1", "vitamin-b2",
+            "vitamin-pp",  // niacin/B3
+            "vitamin-b6", "vitamin-b12",
+            "folates",     // folate
+            "biotin", "pantothenic-acid",
+            "calcium", "magnesium", "iron", "zinc",
+            "selenium", "iodine", "copper", "manganese",
+            "chromium", "molybdenum"
+        ]
+
+        var nutrients: [ScannedNutrient] = []
+
+        for key in nutrientKeys {
+            // Try _100g value first, then base value
+            let amount: Double?
+            if let val = dict["\(key)_100g"]?.doubleValue {
+                amount = val
+            } else if let val = dict[key]?.doubleValue {
+                amount = val
+            } else {
+                continue
+            }
+
+            guard let amt = amount, amt > 0 else { continue }
+
+            let unit = dict["\(key)_unit"]?.stringValue ?? "mg"
+
+            // Map OFF key names to our internal names
+            let name: String
+            switch key {
+            case "vitamin-pp": name = "niacin"
+            case "folates": name = "folate"
+            default: name = key
+            }
+
+            nutrients.append(ScannedNutrient(name: name, amount: amt, unit: unit))
+        }
+
+        return nutrients
     }
 
     // MARK: - Conversion Methods
@@ -121,7 +183,7 @@ struct ScannedNutrient: Hashable, Sendable {
     ///   - name: Nutrient name as provided by the external API
     ///   - amount: Amount of the nutrient
     ///   - unit: Unit of measurement
-    init(name: String, amount: Double, unit: String) {
+    nonisolated init(name: String, amount: Double, unit: String) {
         self.name = name
         self.amount = amount
         self.unit = unit
@@ -228,3 +290,46 @@ struct ScannedNutrient: Hashable, Sendable {
 // MARK: - Codable Conformance
 extension ScannedNutrient: Codable {}
 
+// MARK: - AnyCodableValue
+
+/// A helper type to decode JSON values that can be numbers, strings, or booleans.
+/// Used for parsing Open Food Facts nutriments dictionary where values have mixed types.
+enum AnyCodableValue: Sendable, Decodable {
+    case int(Int)
+    case double(Double)
+    case string(String)
+    case bool(Bool)
+
+    nonisolated init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        if let intVal = try? container.decode(Int.self) {
+            self = .int(intVal)
+        } else if let doubleVal = try? container.decode(Double.self) {
+            self = .double(doubleVal)
+        } else if let stringVal = try? container.decode(String.self) {
+            self = .string(stringVal)
+        } else if let boolVal = try? container.decode(Bool.self) {
+            self = .bool(boolVal)
+        } else {
+            self = .string("")
+        }
+    }
+
+    nonisolated var doubleValue: Double? {
+        switch self {
+        case .int(let v): return Double(v)
+        case .double(let v): return v
+        case .string(let v): return Double(v)
+        case .bool: return nil
+        }
+    }
+
+    nonisolated var stringValue: String? {
+        switch self {
+        case .string(let v): return v
+        case .int(let v): return String(v)
+        case .double(let v): return String(v)
+        case .bool: return nil
+        }
+    }
+}

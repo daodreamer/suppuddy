@@ -55,14 +55,14 @@ struct ProductSearchResult: Sendable {
 
     enum CodingKeys: String, CodingKey {
         case products
-        case totalCount
+        case totalCount = "count"
         case page
-        case pageSize
+        case pageSize = "page_size"
     }
 
     nonisolated init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.products = try container.decode([ScannedProduct].self, forKey: .products)
+        self.products = (try? container.decode([ScannedProduct].self, forKey: .products)) ?? []
         self.totalCount = try container.decode(Int.self, forKey: .totalCount)
         self.page = try container.decode(Int.self, forKey: .page)
         self.pageSize = try container.decode(Int.self, forKey: .pageSize)

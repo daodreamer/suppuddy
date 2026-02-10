@@ -52,18 +52,22 @@ struct IntegrationTests {
             )
             let context = ModelContext(container)
 
-            // Create mock API response
-            let testProduct = ScannedProduct(
-                barcode: "4006381333931",
-                name: "Test Vitamin D3",
-                brand: "Test Brand",
-                imageUrl: nil,
-                servingSize: "1 tablet",
-                nutrients: [
-                    ScannedNutrient(name: "Vitamin D", amount: 20.0, unit: "μg")
-                ]
-            )
-            let productData = try JSONEncoder().encode(testProduct)
+            // Create mock API response matching actual OFF API format
+            let productData = """
+            {
+                "status": 1,
+                "product": {
+                    "code": "4006381333931",
+                    "product_name": "Test Vitamin D3",
+                    "brands": "Test Brand",
+                    "serving_size": "1 tablet",
+                    "nutriments": {
+                        "vitamin-d_100g": 20.0,
+                        "vitamin-d_unit": "μg"
+                    }
+                }
+            }
+            """.data(using: .utf8)!
 
             let mockSession = MockURLSession()
             mockSession.mockData = productData
@@ -440,18 +444,24 @@ struct IntegrationTests {
             )
             let context = ModelContext(container)
 
-            let testProduct = ScannedProduct(
-                barcode: "4006381333931",
-                name: "Vitamin D3 20μg",
-                brand: "Test Brand",
-                imageUrl: nil,
-                servingSize: "1 tablet",
-                nutrients: [
-                    ScannedNutrient(name: "Vitamin D", amount: 20.0, unit: "μg"),
-                    ScannedNutrient(name: "Vitamin C", amount: 100.0, unit: "mg")
-                ]
-            )
-            let productData = try JSONEncoder().encode(testProduct)
+            // Create mock API response matching actual OFF API format
+            let productData = """
+            {
+                "status": 1,
+                "product": {
+                    "code": "4006381333931",
+                    "product_name": "Vitamin D3 20μg",
+                    "brands": "Test Brand",
+                    "serving_size": "1 tablet",
+                    "nutriments": {
+                        "vitamin-d_100g": 20.0,
+                        "vitamin-d_unit": "μg",
+                        "vitamin-c_100g": 100.0,
+                        "vitamin-c_unit": "mg"
+                    }
+                }
+            }
+            """.data(using: .utf8)!
 
             let mockSession = MockURLSession()
             mockSession.mockData = productData
@@ -499,19 +509,23 @@ struct IntegrationTests {
             )
             let context = ModelContext(container)
 
-            let testProduct = ScannedProduct(
-                barcode: "1234567890123",
-                name: "Multi Vitamin",
-                brand: nil,
-                imageUrl: nil,
-                servingSize: "1 tablet",
-                nutrients: [
-                    ScannedNutrient(name: "Vitamin D", amount: 20.0, unit: "μg"),
-                    ScannedNutrient(name: "Unknown Nutrient", amount: 50.0, unit: "mg"),  // Unknown
-                    ScannedNutrient(name: "Vitamin C", amount: 100.0, unit: "mg")
-                ]
-            )
-            let productData = try JSONEncoder().encode(testProduct)
+            // Create mock API response - only recognized nutrients from OFF will be parsed
+            let productData = """
+            {
+                "status": 1,
+                "product": {
+                    "code": "1234567890123",
+                    "product_name": "Multi Vitamin",
+                    "serving_size": "1 tablet",
+                    "nutriments": {
+                        "vitamin-d_100g": 20.0,
+                        "vitamin-d_unit": "μg",
+                        "vitamin-c_100g": 100.0,
+                        "vitamin-c_unit": "mg"
+                    }
+                }
+            }
+            """.data(using: .utf8)!
 
             let mockSession = MockURLSession()
             mockSession.mockData = productData

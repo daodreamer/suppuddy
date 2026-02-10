@@ -253,22 +253,22 @@ struct ProductSearchResultTests {
     struct JSONParsingTests {
         @Test("ProductSearchResult parses from JSON structure")
         func testJSONParsing() throws {
-            // Arrange
+            // Arrange - uses actual OFF API key names
             let jsonString = """
             {
                 "products": [
                     {
-                        "barcode": "1234567890123",
-                        "name": "Vitamin D3",
-                        "brand": "HealthBrand",
-                        "imageUrl": "https://example.com/image.jpg",
-                        "servingSize": "1 capsule",
-                        "nutrients": []
+                        "code": "1234567890123",
+                        "product_name": "Vitamin D3",
+                        "brands": "HealthBrand",
+                        "image_url": "https://example.com/image.jpg",
+                        "serving_size": "1 capsule",
+                        "nutriments": {}
                     }
                 ],
-                "totalCount": 42,
+                "count": 42,
                 "page": 1,
-                "pageSize": 10
+                "page_size": 10
             }
             """
             let jsonData = jsonString.data(using: .utf8)!
@@ -287,13 +287,13 @@ struct ProductSearchResultTests {
 
         @Test("ProductSearchResult parses empty products array")
         func testJSONParsingEmptyProducts() throws {
-            // Arrange
+            // Arrange - uses actual OFF API key names
             let jsonString = """
             {
                 "products": [],
-                "totalCount": 0,
+                "count": 0,
                 "page": 1,
-                "pageSize": 10
+                "page_size": 10
             }
             """
             let jsonData = jsonString.data(using: .utf8)!

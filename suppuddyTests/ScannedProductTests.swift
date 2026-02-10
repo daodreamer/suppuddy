@@ -287,26 +287,20 @@ struct ScannedProductTests {
     struct APIParsingTests {
         @Test("ScannedProduct should parse from Open Food Facts JSON structure")
         func testOpenFoodFactsJSONParsing() throws {
-            // Arrange
+            // Arrange - uses actual OFF API key names and flat nutriments dictionary
             let jsonString = """
             {
-                "barcode": "3017620422003",
-                "name": "Nutella",
-                "brand": "Ferrero",
-                "imageUrl": "https://example.com/nutella.jpg",
-                "servingSize": "15g",
-                "nutrients": [
-                    {
-                        "name": "vitamin-c",
-                        "amount": 10.0,
-                        "unit": "mg"
-                    },
-                    {
-                        "name": "calcium",
-                        "amount": 62.0,
-                        "unit": "mg"
-                    }
-                ]
+                "code": "3017620422003",
+                "product_name": "Nutella",
+                "brands": "Ferrero",
+                "image_url": "https://example.com/nutella.jpg",
+                "serving_size": "15g",
+                "nutriments": {
+                    "vitamin-c_100g": 10.0,
+                    "vitamin-c_unit": "mg",
+                    "calcium_100g": 62.0,
+                    "calcium_unit": "mg"
+                }
             }
             """
             let jsonData = jsonString.data(using: .utf8)!
@@ -324,12 +318,12 @@ struct ScannedProductTests {
 
         @Test("ScannedProduct should handle missing optional fields in JSON")
         func testJSONParsingWithMissingOptionals() throws {
-            // Arrange
+            // Arrange - uses actual OFF API key names
             let jsonString = """
             {
-                "barcode": "1234567890",
-                "name": "Basic Product",
-                "nutrients": []
+                "code": "1234567890",
+                "product_name": "Basic Product",
+                "nutriments": {}
             }
             """
             let jsonData = jsonString.data(using: .utf8)!

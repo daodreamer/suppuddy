@@ -44,18 +44,21 @@ struct OpenFoodFactsAPITests {
 
         @Test("Get product by barcode returns product when found")
         func testGetProductSuccess() async throws {
-            // Arrange
+            // Arrange - mock data matches actual OFF API response (wrapped in "product" key)
             let mockSession = MockURLSession()
             let jsonData = """
             {
-                "barcode": "123456",
-                "name": "Test Product",
-                "brand": "Test Brand",
-                "imageUrl": null,
-                "servingSize": "1 serving",
-                "nutrients": [
-                    {"name": "vitamin-c", "amount": 100.0, "unit": "mg"}
-                ]
+                "status": 1,
+                "product": {
+                    "code": "123456",
+                    "product_name": "Test Product",
+                    "brands": "Test Brand",
+                    "serving_size": "1 serving",
+                    "nutriments": {
+                        "vitamin-c_100g": 100.0,
+                        "vitamin-c_unit": "mg"
+                    }
+                }
             }
             """.data(using: .utf8)!
 
@@ -139,23 +142,20 @@ struct OpenFoodFactsAPITests {
 
         @Test("Search products returns results")
         func testSearchProductsSuccess() async throws {
-            // Arrange
+            // Arrange - mock data matches actual OFF API search response
             let mockSession = MockURLSession()
             let jsonData = """
             {
                 "products": [
                     {
-                        "barcode": "111",
-                        "name": "Product 1",
-                        "brand": null,
-                        "imageUrl": null,
-                        "servingSize": null,
-                        "nutrients": []
+                        "code": "111",
+                        "product_name": "Product 1",
+                        "nutriments": {}
                     }
                 ],
-                "totalCount": 50,
+                "count": 50,
                 "page": 1,
-                "pageSize": 10
+                "page_size": 10
             }
             """.data(using: .utf8)!
 
@@ -180,14 +180,14 @@ struct OpenFoodFactsAPITests {
 
         @Test("Search products with empty results")
         func testSearchProductsEmpty() async throws {
-            // Arrange
+            // Arrange - mock data matches actual OFF API search response
             let mockSession = MockURLSession()
             let jsonData = """
             {
                 "products": [],
-                "totalCount": 0,
+                "count": 0,
                 "page": 1,
-                "pageSize": 10
+                "page_size": 10
             }
             """.data(using: .utf8)!
 

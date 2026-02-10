@@ -75,7 +75,10 @@ struct HistoryView: View {
                 ProgressView()
             }
         }
-        .alert("错误", isPresented: .constant(viewModel.errorMessage != nil)) {
+        .alert("错误", isPresented: Binding(
+            get: { viewModel.errorMessage != nil },
+            set: { if !$0 { viewModel.errorMessage = nil } }
+        )) {
             Button("确定") { viewModel.errorMessage = nil }
         } message: {
             Text(viewModel.errorMessage ?? "")

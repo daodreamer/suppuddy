@@ -45,7 +45,7 @@ struct SupplementListView: View {
             }
             .sheet(isPresented: $showingAddForm) {
                 if let viewModel = viewModel {
-                    SupplementFormView(repository: viewModel.repository) {
+                    SupplementFormView(repository: viewModel.repository, modelContext: modelContext) {
                         Task { await viewModel.loadSupplements() }
                     }
                 }
@@ -54,7 +54,8 @@ struct SupplementListView: View {
                 if let viewModel = viewModel {
                     SupplementFormView(
                         repository: viewModel.repository,
-                        supplement: supplement
+                        supplement: supplement,
+                        modelContext: modelContext
                     ) {
                         Task { await viewModel.loadSupplements() }
                     }
@@ -132,7 +133,10 @@ struct SupplementListView: View {
                 ProgressView()
             }
         }
-        .alert("Error", isPresented: .constant(viewModel.errorMessage != nil)) {
+        .alert("Error", isPresented: Binding(
+            get: { viewModel.errorMessage != nil },
+            set: { if !$0 { viewModel.errorMessage = nil } }
+        )) {
             Button("OK") { viewModel.errorMessage = nil }
         } message: {
             Text(viewModel.errorMessage ?? "")

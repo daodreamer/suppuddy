@@ -86,7 +86,6 @@ struct ScannedProduct: Hashable, Sendable {
         try container.encodeIfPresent(servingSize, forKey: .servingSize)
         try container.encode(nutrients, forKey: .nutrients)
     }
-}
 
     // MARK: - Conversion Methods
 

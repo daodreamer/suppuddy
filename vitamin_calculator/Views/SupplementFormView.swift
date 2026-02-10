@@ -51,12 +51,15 @@ struct SupplementFormView: View {
                 historyRepository: ScanHistoryRepository(modelContext: context)
             )
         } else {
-            // Fallback - will be initialized in onAppear
+            // Fallback - use in-memory storage to avoid corrupting the main database.
+            // Creating a ModelContainer with only ScanHistory against the default store
+            // would drop tables for other entities (Supplement, IntakeRecord, etc.).
+            let config = ModelConfiguration(isStoredInMemoryOnly: true)
             self.lookupService = ProductLookupService(
                 api: OpenFoodFactsAPI(),
                 historyRepository: ScanHistoryRepository(
                     modelContext: ModelContext(
-                        try! ModelContainer(for: ScanHistory.self)
+                        try! ModelContainer(for: ScanHistory.self, configurations: config)
                     )
                 )
             )
@@ -141,10 +144,21 @@ struct SupplementFormView: View {
                     )
                 }
             }
-            .alert("Validation Error", isPresented: .constant(!viewModel.validationErrors.isEmpty)) {
-                Button("OK") { }
+            .alert("Validation Error", isPresented: Binding(
+                get: { !viewModel.validationErrors.isEmpty },
+                set: { if !$0 { viewModel.validationErrors = [] } }
+            )) {
+                Button("OK") { viewModel.validationErrors = [] }
             } message: {
                 Text(validationErrorMessage)
+            }
+            .alert("Error", isPresented: Binding(
+                get: { viewModel.errorMessage != nil },
+                set: { if !$0 { viewModel.errorMessage = nil } }
+            )) {
+                Button("OK") { viewModel.errorMessage = nil }
+            } message: {
+                Text(viewModel.errorMessage ?? "")
             }
         }
     }

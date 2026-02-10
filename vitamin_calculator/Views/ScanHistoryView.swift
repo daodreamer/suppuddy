@@ -67,7 +67,10 @@ struct ScanHistoryView: View {
             } message: {
                 Text("This will delete all scan history records. This action cannot be undone.")
             }
-            .alert("Error", isPresented: .constant(viewModel.errorMessage != nil)) {
+            .alert("Error", isPresented: Binding(
+                get: { viewModel.errorMessage != nil },
+                set: { if !$0 { viewModel.errorMessage = nil } }
+            )) {
                 Button("OK") {
                     viewModel.errorMessage = nil
                 }

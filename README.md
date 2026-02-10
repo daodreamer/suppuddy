@@ -1,4 +1,4 @@
-# 维生素计算器 (Vitamin Calculator)
+# suppuddy
 
 <p align="center">
   <img src="https://img.shields.io/badge/Platform-iOS%2017%2B-blue.svg" alt="Platform">
@@ -115,7 +115,7 @@
 ### 核心模块
 
 ```
-vitamin_calculator/
+suppuddy/
 ├── App/                     # 应用入口
 ├── Models/                  # 数据模型
 │   ├── User/               # 用户相关
@@ -154,18 +154,18 @@ vitamin_calculator/
 
 ```bash
 # 运行所有测试
-xcodebuild -scheme vitamin_calculator \
+xcodebuild -scheme suppuddy \
   -destination 'platform=iOS Simulator,name=iPhone 17 Pro' test
 
 # 运行特定测试套件
-xcodebuild -scheme vitamin_calculator \
+xcodebuild -scheme suppuddy \
   -destination 'platform=iOS Simulator,name=iPhone 17 Pro' \
-  -only-testing:vitamin_calculatorTests/NutrientTypeTests test
+  -only-testing:suppuddyTests/NutrientTypeTests test
 
 # 运行特定测试方法
-xcodebuild -scheme vitamin_calculator \
+xcodebuild -scheme suppuddy \
   -destination 'platform=iOS Simulator,name=iPhone 17 Pro' \
-  -only-testing:vitamin_calculatorTests/NutrientTypeTests/testHasVitaminA test
+  -only-testing:suppuddyTests/NutrientTypeTests/testHasVitaminA test
 ```
 
 ### 测试类型
@@ -220,13 +220,13 @@ xcodebuild -scheme vitamin_calculator \
 ```bash
 # 克隆项目
 git clone <repository-url>
-cd vitamin_calculator
+cd suppuddy
 
 # 使用Xcode打开项目
-open vitamin_calculator.xcodeproj
+open suppuddy.xcodeproj
 
 # 或使用命令行构建
-xcodebuild -scheme vitamin_calculator \
+xcodebuild -scheme suppuddy \
   -destination 'platform=iOS Simulator,name=iPhone 17 Pro' build
 ```
 
@@ -238,7 +238,7 @@ xcodebuild -scheme vitamin_calculator \
 2. **Green**: 编写最小代码使测试通过
 3. **Refactor**: 重构代码，保持测试通过
 
-详细的TDD指南请参考：[TDD_BEST_PRACTICES.md](vitamin_calculator/Docs/TDD_BEST_PRACTICES.md)
+详细的TDD指南请参考：[TDD_BEST_PRACTICES.md](suppuddy/Docs/TDD_BEST_PRACTICES.md)
 
 ### 代码规范
 
@@ -250,16 +250,16 @@ xcodebuild -scheme vitamin_calculator \
 
 ## 📚 文档
 
-- [项目规格文档](vitamin_calculator/Docs/PROJECT_SPECIFICATION.md) - 完整的项目需求和架构设计
-- [TDD最佳实践](vitamin_calculator/Docs/TDD_BEST_PRACTICES.md) - 测试驱动开发指南
+- [项目规格文档](suppuddy/Docs/PROJECT_SPECIFICATION.md) - 完整的项目需求和架构设计
+- [TDD最佳实践](suppuddy/Docs/TDD_BEST_PRACTICES.md) - 测试驱动开发指南
 - [CLAUDE.md](CLAUDE.md) - Claude Code工作指南
 - [CHANGELOG.md](CHANGELOG.md) - 版本更新日志
 
 ### Sprint完成报告
 
-- [Sprint 5完成报告](vitamin_calculator/Docs/SPRINT_5_COMPLETION_REPORT.md)
-- [Sprint 6完成报告](vitamin_calculator/Docs/SPRINT_6_PHASE_6_7_COMPLETION_REPORT.md)
-- [Sprint 7 Phase 1-6完成报告](vitamin_calculator/Docs/SPRINT_7_PHASE_6_COMPLETION_REPORT.md)
+- [Sprint 5完成报告](suppuddy/Docs/SPRINT_5_COMPLETION_REPORT.md)
+- [Sprint 6完成报告](suppuddy/Docs/SPRINT_6_PHASE_6_7_COMPLETION_REPORT.md)
+- [Sprint 7 Phase 1-6完成报告](suppuddy/Docs/SPRINT_7_PHASE_6_COMPLETION_REPORT.md)
 
 ## 🎯 项目状态
 

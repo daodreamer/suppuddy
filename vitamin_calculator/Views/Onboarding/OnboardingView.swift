@@ -107,7 +107,7 @@ struct OnboardingView: View {
                             .frame(maxWidth: .infinity)
                     } else {
                         Label(
-                            viewModel.isLastStep ? "完成" : "下一步",
+                            viewModel.isLastStep ? String(localized: "完成") : String(localized: "下一步"),
                             systemImage: viewModel.isLastStep ? "checkmark.circle.fill" : "chevron.right"
                         )
                         .frame(maxWidth: .infinity)

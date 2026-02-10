@@ -22,4 +22,14 @@ nonisolated enum SpecialNeeds: String, Codable, CaseIterable, Sendable {
 
     /// Both pregnancy and breastfeeding - combined special needs
     case pregnantAndBreastfeeding = "孕期及哺乳期"
+
+    /// Localized display name for the special needs type
+    var displayName: String {
+        switch self {
+        case .none: return String(localized: "无")
+        case .pregnant: return String(localized: "孕期")
+        case .breastfeeding: return String(localized: "哺乳期")
+        case .pregnantAndBreastfeeding: return String(localized: "孕期及哺乳期")
+        }
+    }
 }

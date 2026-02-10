@@ -46,21 +46,21 @@ struct UserTypeStepView: View {
 
                         VStack(spacing: 12) {
                             UserTypeButton(
-                                title: "成年男性",
+                                title: String(localized: "成年男性"),
                                 icon: "person.fill",
                                 isSelected: isUserType(.male),
                                 action: { userProfile.userType = .male }
                             )
 
                             UserTypeButton(
-                                title: "成年女性",
+                                title: String(localized: "成年女性"),
                                 icon: "person.fill",
                                 isSelected: isUserType(.female),
                                 action: { userProfile.userType = .female }
                             )
 
                             UserTypeButton(
-                                title: "儿童",
+                                title: String(localized: "儿童"),
                                 icon: "figure.child",
                                 isSelected: isChildType,
                                 action: {

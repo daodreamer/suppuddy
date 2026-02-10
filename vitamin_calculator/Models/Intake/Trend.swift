@@ -17,11 +17,11 @@ enum Trend: String, CaseIterable, Codable, Hashable, Sendable {
     var displayName: String {
         switch self {
         case .increasing:
-            return "上升"
+            return String(localized: "上升")
         case .decreasing:
-            return "下降"
+            return String(localized: "下降")
         case .stable:
-            return "稳定"
+            return String(localized: "稳定")
         }
     }
 }

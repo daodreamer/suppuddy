@@ -112,7 +112,7 @@ final class OnboardingViewModel {
 
         // Validation
         guard !state.userProfile.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
-            errorMessage = "请输入您的名称"
+            errorMessage = String(localized: "请输入您的名称")
             isLoading = false
             return
         }

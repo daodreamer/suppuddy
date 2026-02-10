@@ -31,6 +31,18 @@ nonisolated enum ChildAgeGroup: String, Codable, CaseIterable, Sendable {
 
     // MARK: - Properties
 
+    /// Localized display name for the age group
+    var displayName: String {
+        switch self {
+        case .age1to3: return String(localized: "1-3岁")
+        case .age4to6: return String(localized: "4-6岁")
+        case .age7to9: return String(localized: "7-9岁")
+        case .age10to12: return String(localized: "10-12岁")
+        case .age13to14: return String(localized: "13-14岁")
+        case .age15to18: return String(localized: "15-18岁")
+        }
+    }
+
     /// Returns the age range for this age group
     var ageRange: ClosedRange<Int> {
         switch self {

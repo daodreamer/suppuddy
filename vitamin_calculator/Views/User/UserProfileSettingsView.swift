@@ -57,7 +57,7 @@ struct UserProfileSettingsView: View {
             Section("特殊需求") {
                 Picker("特殊需求", selection: $viewModel.specialNeeds) {
                     ForEach(SpecialNeeds.allCases, id: \.self) { need in
-                        Text(need.rawValue).tag(need)
+                        Text(need.displayName).tag(need)
                     }
                 }
 

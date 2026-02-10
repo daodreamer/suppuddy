@@ -25,9 +25,9 @@ enum TimeRange: String, CaseIterable {
 
     var displayName: String {
         switch self {
-        case .week: return "7天"
-        case .month: return "30天"
-        case .threeMonths: return "90天"
+        case .week: return String(localized: "7天")
+        case .month: return String(localized: "30天")
+        case .threeMonths: return String(localized: "90天")
         }
     }
 }

@@ -39,10 +39,10 @@ struct WelcomeStepView: View {
 
             // Features list
             VStack(alignment: .leading, spacing: 15) {
-                FeatureRow(icon: "person.fill", text: "个性化推荐值")
-                FeatureRow(icon: "chart.bar.fill", text: "追踪营养摄入")
-                FeatureRow(icon: "bell.fill", text: "智能提醒功能")
-                FeatureRow(icon: "doc.text.fill", text: "数据导出与分析")
+                FeatureRow(icon: "person.fill", text: String(localized: "个性化推荐值"))
+                FeatureRow(icon: "chart.bar.fill", text: String(localized: "追踪营养摄入"))
+                FeatureRow(icon: "bell.fill", text: String(localized: "智能提醒功能"))
+                FeatureRow(icon: "doc.text.fill", text: String(localized: "数据导出与分析"))
             }
             .padding(.horizontal, 40)
 

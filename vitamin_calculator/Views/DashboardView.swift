@@ -89,21 +89,21 @@ struct TodaySummaryCard: View {
                 Spacer()
             }
             .accessibilityElement(children: .combine)
-            .accessibilityLabel("日期：\(formattedDate)")
+            .accessibilityLabel(String(localized: "日期：\(formattedDate)"))
 
             Divider()
 
             if let summary = summary {
                 HStack(spacing: spacing * 2) {
                     StatItem(
-                        title: "摄入记录",
+                        title: String(localized: "摄入记录"),
                         value: "\(summary.recordCount)",
                         icon: "doc.text.fill",
                         color: .blue
                     )
 
                     StatItem(
-                        title: "营养素",
+                        title: String(localized: "营养素"),
                         value: "\(summary.coveredNutrients.count)",
                         icon: "leaf.fill",
                         color: .green
@@ -120,7 +120,7 @@ struct TodaySummaryCard: View {
                     .foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding(.vertical, spacing)
-                    .accessibilityLabel("今日尚无摄入记录")
+                    .accessibilityLabel(String(localized: "今日尚无摄入记录"))
                     .accessibilityHint(AccessibilityHelper.emptyRecordsHint)
             }
         }

@@ -43,17 +43,17 @@ struct CompleteStepView: View {
             VStack(alignment: .leading, spacing: 15) {
                 NextStepRow(
                     number: 1,
-                    text: "添加您正在服用的补剂"
+                    text: String(localized: "添加您正在服用的补剂")
                 )
 
                 NextStepRow(
                     number: 2,
-                    text: "查看您的营养摄入总览"
+                    text: String(localized: "查看您的营养摄入总览")
                 )
 
                 NextStepRow(
                     number: 3,
-                    text: "设置提醒以保持按时服用"
+                    text: String(localized: "设置提醒以保持按时服用")
                 )
             }
             .padding(.horizontal, 40)

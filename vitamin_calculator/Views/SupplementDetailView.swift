@@ -12,25 +12,27 @@ import SwiftData
 struct SupplementDetailView: View {
     let supplement: Supplement
     let repository: SupplementRepository
-    @State private var viewModel: SupplementDetailViewModel?
+    @State private var viewModel: SupplementDetailViewModel
     @State private var showingEditForm = false
     @Environment(\.dismiss) private var dismiss
 
+    init(supplement: Supplement, repository: SupplementRepository) {
+        self.supplement = supplement
+        self.repository = repository
+        _viewModel = State(initialValue: SupplementDetailViewModel(supplement: supplement))
+    }
+
     var body: some View {
         ScrollView {
-            if let viewModel = viewModel {
-                VStack(alignment: .leading, spacing: 20) {
-                    headerSection(viewModel: viewModel)
-                    nutrientsSection(viewModel: viewModel)
-                    if let notes = supplement.notes, !notes.isEmpty {
-                        notesSection(notes: notes)
-                    }
-                    infoSection
+            VStack(alignment: .leading, spacing: 20) {
+                headerSection(viewModel: viewModel)
+                nutrientsSection(viewModel: viewModel)
+                if let notes = supplement.notes, !notes.isEmpty {
+                    notesSection(notes: notes)
                 }
-                .padding()
-            } else {
-                ProgressView()
+                infoSection
             }
+            .padding()
         }
         .navigationTitle(supplement.name)
         .navigationBarTitleDisplayMode(.inline)
@@ -41,7 +43,7 @@ struct SupplementDetailView: View {
             ToolbarItem(placement: .secondaryAction) {
                 Button {
                     Task {
-                        await viewModel?.toggleActive(using: repository)
+                        await viewModel.toggleActive(using: repository)
                     }
                 } label: {
                     Image(systemName: supplement.isActive ? "pause.circle" : "play.circle")
@@ -52,9 +54,6 @@ struct SupplementDetailView: View {
             SupplementFormView(repository: repository, supplement: supplement) {
                 // Refresh after edit
             }
-        }
-        .onAppear {
-            viewModel = SupplementDetailViewModel(supplement: supplement)
         }
     }
 

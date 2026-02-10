@@ -161,7 +161,7 @@ final class IntakeService {
             tips.append(HealthTip(
                 type: .warning,
                 nutrient: nutrient,
-                message: "\(nutrient.localizedName)摄入量超过安全上限，请注意减少摄入"
+                message: String(localized: "\(nutrient.localizedName)摄入量超过安全上限，请注意减少摄入")
             ))
         }
 
@@ -171,7 +171,7 @@ final class IntakeService {
             tips.append(HealthTip(
                 type: .suggestion,
                 nutrient: nutrient,
-                message: "\(nutrient.localizedName)摄入不足，建议增加摄入"
+                message: String(localized: "\(nutrient.localizedName)摄入不足，建议增加摄入")
             ))
         }
 

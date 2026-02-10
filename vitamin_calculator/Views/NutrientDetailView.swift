@@ -14,23 +14,20 @@ struct NutrientDetailView: View {
     let nutrientType: NutrientType
     let modelContext: ModelContext
 
-    @State private var viewModel: NutrientChartViewModel?
+    @State private var viewModel: NutrientChartViewModel
+
+    init(nutrientType: NutrientType, modelContext: ModelContext) {
+        self.nutrientType = nutrientType
+        self.modelContext = modelContext
+        _viewModel = State(initialValue: NutrientChartViewModel(modelContext: modelContext))
+    }
 
     var body: some View {
-        Group {
-            if let viewModel = viewModel {
-                detailContent(viewModel: viewModel)
-            } else {
-                ProgressView("加载中...")
-            }
-        }
+        detailContent(viewModel: viewModel)
         .navigationTitle(nutrientType.localizedName)
         .navigationBarTitleDisplayMode(.large)
         .task {
-            if viewModel == nil {
-                viewModel = NutrientChartViewModel(modelContext: modelContext)
-                await viewModel?.selectNutrient(nutrientType)
-            }
+            await viewModel.selectNutrient(nutrientType)
         }
     }
 
@@ -101,11 +98,11 @@ struct CurrentStatusCard: View {
 
     private var statusText: String {
         if percentage < 80 {
-            return "摄入不足"
+            return String(localized: "摄入不足")
         } else if percentage > 150 {
-            return "摄入过量"
+            return String(localized: "摄入过量")
         } else {
-            return "摄入正常"
+            return String(localized: "摄入正常")
         }
     }
 
@@ -288,9 +285,9 @@ struct NutrientInfoCard: View {
 
             Divider()
 
-            InfoRow(label: "名称", value: nutrient.localizedName)
-            InfoRow(label: "单位", value: nutrient.unit)
-            InfoRow(label: "类型", value: nutrient.isVitamin ? "维生素" : "矿物质")
+            InfoRow(label: String(localized: "名称"), value: nutrient.localizedName)
+            InfoRow(label: String(localized: "单位"), value: nutrient.unit)
+            InfoRow(label: String(localized: "类型"), value: nutrient.isVitamin ? String(localized: "维生素") : String(localized: "矿物质"))
         }
         .padding()
         .background(Color(.systemBackground))

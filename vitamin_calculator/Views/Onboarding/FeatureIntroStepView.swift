@@ -31,43 +31,43 @@ struct FeatureIntroStepView: View {
                     FeatureCard(
                         icon: "pills.fill",
                         color: .blue,
-                        title: "补剂管理",
-                        description: "记录和管理您正在服用的所有补剂产品"
+                        title: String(localized: "补剂管理"),
+                        description: String(localized: "记录和管理您正在服用的所有补剂产品")
                     )
 
                     FeatureCard(
                         icon: "chart.bar.xaxis",
                         color: .green,
-                        title: "摄入追踪",
-                        description: "自动计算您的每日营养素总摄入量"
+                        title: String(localized: "摄入追踪"),
+                        description: String(localized: "自动计算您的每日营养素总摄入量")
                     )
 
                     FeatureCard(
                         icon: "checkmark.circle.fill",
                         color: .orange,
-                        title: "推荐对比",
-                        description: "查看您的摄入量与DGE推荐值的对比"
+                        title: String(localized: "推荐对比"),
+                        description: String(localized: "查看您的摄入量与DGE推荐值的对比")
                     )
 
                     FeatureCard(
                         icon: "bell.badge.fill",
                         color: .purple,
-                        title: "智能提醒",
-                        description: "设置提醒，确保您按时服用补剂"
+                        title: String(localized: "智能提醒"),
+                        description: String(localized: "设置提醒，确保您按时服用补剂")
                     )
 
                     FeatureCard(
                         icon: "barcode.viewfinder",
                         color: .pink,
-                        title: "扫描录入",
-                        description: "扫描条形码快速添加产品信息"
+                        title: String(localized: "扫描录入"),
+                        description: String(localized: "扫描条形码快速添加产品信息")
                     )
 
                     FeatureCard(
                         icon: "square.and.arrow.up",
                         color: .cyan,
-                        title: "数据导出",
-                        description: "导出您的数据与医生或营养师分享"
+                        title: String(localized: "数据导出"),
+                        description: String(localized: "导出您的数据与医生或营养师分享")
                     )
                 }
                 .padding(.horizontal, 20)

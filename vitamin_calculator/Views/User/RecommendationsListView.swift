@@ -29,7 +29,7 @@ struct RecommendationsListView: View {
                         HStack {
                             Text("特殊需求:")
                                 .foregroundColor(.secondary)
-                            Text(specialNeeds.rawValue)
+                            Text(specialNeeds.displayName)
                                 .fontWeight(.medium)
                                 .foregroundColor(.blue)
                         }

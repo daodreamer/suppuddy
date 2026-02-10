@@ -104,7 +104,7 @@ final class UserProfileViewModel {
 
         // Validate required fields
         guard !name.isEmpty else {
-            errorMessage = "名称不能为空"
+            errorMessage = String(localized: "名称不能为空")
             isLoading = false
             return
         }

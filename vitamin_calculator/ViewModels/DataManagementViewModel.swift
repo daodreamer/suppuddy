@@ -177,7 +177,7 @@ final class DataManagementViewModel {
     /// - Parameter mode: Import mode (merge or replace)
     func performImport(mode: ImportMode) async {
         guard let exportData = pendingExportData else {
-            errorMessage = "请先选择要导入的文件"
+            errorMessage = String(localized: "请先选择要导入的文件")
             return
         }
 
@@ -191,7 +191,7 @@ final class DataManagementViewModel {
             // Set error message if there were errors during import
             if !result.errors.isEmpty {
                 let errorMessages = result.errors.map { $0.description }.joined(separator: "\n")
-                errorMessage = "导入时出现错误:\n\(errorMessages)"
+                errorMessage = String(localized: "导入时出现错误:\n\(errorMessages)")
             }
         } catch let error as ImportError {
             errorMessage = error.description

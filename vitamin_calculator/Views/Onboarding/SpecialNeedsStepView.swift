@@ -78,7 +78,7 @@ struct SpecialNeedButton: View {
             HStack {
                 Image(systemName: iconForNeed(need))
                     .frame(width: 24)
-                Text(need.rawValue)
+                Text(need.displayName)
                     .fontWeight(isSelected ? .semibold : .regular)
                 Spacer()
                 if isSelected {

@@ -141,7 +141,7 @@ struct CalendarGridView: View {
     let onDateSelected: (Date) -> Void
 
     private let calendar = Calendar.current
-    private let weekdays = ["日", "一", "二", "三", "四", "五", "六"]
+    private let weekdays = Calendar.current.veryShortWeekdaySymbols
 
     private var daysInMonth: [Date?] {
         let startOfMonth = calendar.date(from: calendar.dateComponents([.year, .month], from: selectedDate))!

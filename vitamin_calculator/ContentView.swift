@@ -191,8 +191,8 @@ struct ProfileView: View {
 
                 // Stats Section
                 Section("统计信息") {
-                    StatRow(label: "总补剂数", value: supplementCount)
-                    StatRow(label: "总记录数", value: recordCount)
+                    StatRow(label: String(localized: "总补剂数"), value: supplementCount)
+                    StatRow(label: String(localized: "总记录数"), value: recordCount)
                 }
 
                 // About Section
@@ -219,11 +219,11 @@ struct ProfileView: View {
     private func userTypeDisplayName(_ userType: UserType) -> String {
         switch userType {
         case .male:
-            return "成年男性"
+            return String(localized: "成年男性")
         case .female:
-            return "成年女性"
+            return String(localized: "成年女性")
         case .child(let age):
-            return "儿童 (\(age)岁)"
+            return String(localized: "儿童 (\(age)岁)")
         }
     }
 

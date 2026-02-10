@@ -52,8 +52,8 @@ struct DataManagementView: View {
                 }) {
                     ExportOptionRow(
                         icon: "square.and.arrow.up.on.square",
-                        title: "导出所有数据",
-                        description: "以JSON格式导出所有数据"
+                        title: String(localized: "导出所有数据"),
+                        description: String(localized: "以JSON格式导出所有数据")
                     )
                 }
                 .disabled(viewModel.isExporting || viewModel.isImporting)
@@ -68,8 +68,8 @@ struct DataManagementView: View {
                 }) {
                     ExportOptionRow(
                         icon: "pills",
-                        title: "导出补剂列表",
-                        description: "以CSV格式导出补剂"
+                        title: String(localized: "导出补剂列表"),
+                        description: String(localized: "以CSV格式导出补剂")
                     )
                 }
                 .disabled(viewModel.isExporting || viewModel.isImporting)
@@ -80,8 +80,8 @@ struct DataManagementView: View {
                 }) {
                     ExportOptionRow(
                         icon: "calendar",
-                        title: "导出摄入记录",
-                        description: "以CSV格式导出记录"
+                        title: String(localized: "导出摄入记录"),
+                        description: String(localized: "以CSV格式导出记录")
                     )
                 }
                 .disabled(viewModel.isExporting || viewModel.isImporting)
@@ -129,8 +129,8 @@ struct DataManagementView: View {
             if let preview = viewModel.importPreview {
                 Section("导入预览") {
                     VStack(alignment: .leading, spacing: 12) {
-                        PreviewRow(label: "补剂", count: preview.supplementCount)
-                        PreviewRow(label: "摄入记录", count: preview.intakeRecordCount)
+                        PreviewRow(label: String(localized: "补剂"), count: preview.supplementCount)
+                        PreviewRow(label: String(localized: "摄入记录"), count: preview.intakeRecordCount)
 
                         if !preview.conflicts.isEmpty {
                             Divider()
@@ -188,8 +188,8 @@ struct DataManagementView: View {
                     }
 
                     VStack(alignment: .leading, spacing: 8) {
-                        ResultRow(label: "已导入补剂", count: result.supplementsImported)
-                        ResultRow(label: "已导入摄入记录", count: result.intakeRecordsImported)
+                        ResultRow(label: String(localized: "已导入补剂"), count: result.supplementsImported)
+                        ResultRow(label: String(localized: "已导入摄入记录"), count: result.intakeRecordsImported)
                     }
 
                     Button("完成") {

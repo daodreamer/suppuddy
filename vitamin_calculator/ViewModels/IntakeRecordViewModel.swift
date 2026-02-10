@@ -80,7 +80,7 @@ final class IntakeRecordViewModel {
     /// Records an intake for the selected supplement
     func recordIntake() async {
         guard let supplement = selectedSupplement else {
-            errorMessage = "请选择一个补剂"
+            errorMessage = String(localized: "请选择一个补剂")
             return
         }
 

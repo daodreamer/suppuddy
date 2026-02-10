@@ -5,7 +5,7 @@
 > 当前 Swift 版本: 项目配置 `SWIFT_VERSION = 6.0` ✅（已从 5.0 升级）
 > 最新 Swift 版本: Swift 6.2.3
 > 最新 iOS 版本: iOS 26
-> 测试结果: 869 passed, 3 failed（预存在的不稳定测试）
+> 测试结果: 862 passed, 3 failed（预存在的不稳定测试）
 
 ---
 
@@ -118,25 +118,18 @@
 
 ---
 
-### 6. ViewModel 中使用 Optional 延迟初始化模式（中优先级）
+### 6. ✅ ViewModel 中使用 Optional 延迟初始化模式（中优先级）— 部分完成
 
-**当前状态** (`DashboardView.swift`):
+**状态**: ✅ 部分完成
 
-```swift
-@State private var viewModel: DashboardViewModel?
-// 在 .task 中延迟初始化
-```
+**实施内容**:
+- `SupplementDetailView` — 移除 Optional + `.onAppear`，改为 `init` 中直接用 `State(initialValue:)` 初始化
+- `NutrientDetailView` — 移除 Optional + `.task` 创建，改为 `init` 中直接用 `State(initialValue:)` 初始化
+- 两个 View 均消除了 `if let viewModel` 和 `ProgressView` 加载状态
 
-**Swift 6.2 / SwiftUI 最佳实践**:
-
-```swift
-// 推荐：直接初始化
-@State private var viewModel = DashboardViewModel()
-```
-
-ViewModel 应作为 `@State private var` 直接初始化，而不是使用 Optional + `.task` 延迟创建。当前模式导致不必要的 `Optional` 解包和加载状态。
-
-**优化方向**: 使用 `@Environment(\.modelContext)` 在 ViewModel 初始化后注入 context，或使用 factory pattern。
+**未修改的 Views（保持 Optional 模式）**:
+- `DashboardView`, `HistoryView`, `SupplementListView`, `IntakeRecordView`
+- 原因: 这 4 个 View 的 ViewModel 依赖 `@Environment(\.modelContext)`，该值在 View `init` 时尚不可用，只能在 `body` 或 `.task` 中访问。Optional + `.task` 延迟初始化是此场景下的合理模式。
 
 **参考**: [SwiftUI Expert Skill - avdlee](https://github.com/avdlee/swiftui-agent-skill)
 
@@ -215,22 +208,48 @@ final class NetworkMonitor {
 
 ---
 
-### 10. ⚠️ 硬编码的中文字符串（中优先级）— 部分完成
+### 10. ✅ 硬编码的中文字符串（中优先级）— 已完成
 
-**状态**: ⚠️ 部分完成（日期格式化已修复，其余需独立 sprint）
+**状态**: ✅ 已完成
 
-**已修复**:
+**实施内容**:
+
+**阶段一：日期格式化和 locale 修复**（在 #12 中完成）
 - 移除了 `DashboardView`, `HistoryView`, `AccessibilityHelper` 中的 `Locale(identifier: "zh_CN")` 硬编码
 - 替换为 `.formatted()` API（自动使用用户当前 locale）
 
-**未修复**: 项目中仍有 100+ 处硬编码中文字符串，分布在：
-- `DashboardView.swift` — 14 处
-- `IntakeRecordView.swift` — 17 处
-- `DataManagementView.swift` — 24 处
-- `AccessibilityHelper.swift` — 35+ 处
-- `HistoryView.swift` — 多处
+**阶段二：String(localized:) 全面覆盖**
+将所有非 SwiftUI 自动本地化上下文中的中文字符串包装为 `String(localized:)`：
 
-**建议**: 全面国际化需要独立的 sprint 来完成，包括将所有 UI 字符串迁移到 `Localizable.xcstrings`。
+- **AccessibilityHelper.swift** — 33+ 静态常量和动态函数全部转换
+- **DashboardView.swift** — StatItem title 参数、accessibilityLabel
+- **DataManagementView.swift** — ExportOptionRow、PreviewRow、ResultRow 参数
+- **FeatureIntroStepView.swift** — 6 个 FeatureCard 的 title/description（12 处）
+- **WelcomeStepView.swift** — 4 个 FeatureRow text 参数
+- **CompleteStepView.swift** — 3 个 NextStepRow text 参数
+- **UserTypeStepView.swift** — 3 个 UserTypeButton title 参数
+- **SupplementListView.swift** — 5 个 accessibilityHint 字符串
+- **OnboardingView.swift** — Label ternary 字符串
+- **HistoryView.swift** — weekdays 数组改用 `Calendar.current.veryShortWeekdaySymbols`
+- **NutrientDetailView.swift** — statusText 返回值、InfoRow label/value 参数
+- **ContentView.swift** — StatRow label、userTypeDisplayName 返回值
+- **NutrientChartViewModel.swift** — TimeRange.displayName 返回值
+
+**阶段三：Model/Service 层本地化**
+- **TimeOfDay.swift** — displayName 4 个返回值
+- **Trend.swift** — displayName 3 个返回值
+- **IntakeService.swift** — 2 个 HealthTip message 字符串
+- **IntakeRecordViewModel.swift** — 1 个 errorMessage
+- **DataManagementViewModel.swift** — 2 个 errorMessage
+- **OnboardingViewModel.swift** — 1 个 errorMessage
+- **UserProfileViewModel.swift** — 1 个 errorMessage
+
+**阶段四：Enum raw value 与 displayName 分离**
+- **SpecialNeeds.swift** — 新增 `displayName` 计算属性，保留 raw value 用于 Codable
+- **ChildAgeGroup.swift** — 新增 `displayName` 计算属性
+- 更新 UI 调用：`SpecialNeedsStepView`、`UserProfileSettingsView`、`RecommendationsListView` 改用 `.displayName`
+
+**新增测试**: `AccessibilityHelperLocalizationTests.swift`（11 个测试）— 验证所有 AccessibilityHelper 字符串非空且正确本地化
 
 ---
 
@@ -282,9 +301,9 @@ iOS 26 引入了 **Liquid Glass** 设计语言：
 | **高** | NetworkMonitor 改用 AsyncStream | 1 文件 | 小 | ✅ 已完成 |
 | **中** | 移除冗余 `@MainActor` | 22 处 | 中 | ✅ 已完成 |
 | **中** | Repository 移除不必要的 `async` | 26+ 文件 | 大 | ⏸️ 推迟 |
-| **中** | ViewModel 直接初始化替代 Optional 模式 | Views | 中 | ⬚ 待评估 |
+| **中** | ViewModel 直接初始化替代 Optional 模式 | 2 Views | 中 | ✅ 部分完成 |
 | **中** | 纯计算服务 `nonisolated` | Services | 小 | ✅ 部分完成 |
-| **中** | 硬编码中文字符串国际化 | Views | 中 | ⚠️ 部分完成 |
+| **中** | 硬编码中文字符串国际化 | Views, Models, Services | 中 | ✅ 已完成 |
 | **低** | DateFormatter 缓存优化 | Views | 小 | ✅ 已完成 |
 | **低** | InlineArray / Span 应用 | Models | 小 | ⬚ 待实施 |
 | **前瞻** | iOS 26 Liquid Glass 适配 | Views | 大 | ⬚ 待实施 |

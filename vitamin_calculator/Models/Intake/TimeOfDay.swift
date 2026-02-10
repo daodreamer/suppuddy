@@ -19,13 +19,13 @@ enum TimeOfDay: String, CaseIterable, Codable, Hashable, Sendable {
     var displayName: String {
         switch self {
         case .morning:
-            return "早晨"
+            return String(localized: "早晨")
         case .noon:
-            return "中午"
+            return String(localized: "中午")
         case .evening:
-            return "傍晚"
+            return String(localized: "傍晚")
         case .night:
-            return "晚上"
+            return String(localized: "晚上")
         }
     }
 }

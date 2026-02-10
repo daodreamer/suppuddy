@@ -31,7 +31,7 @@ struct SupplementListView: View {
                         Image(systemName: "plus")
                     }
                     .accessibilityLabel(AccessibilityHelper.supplementAddButton)
-                    .accessibilityHint("点击添加新的补剂")
+                    .accessibilityHint(String(localized: "点击添加新的补剂"))
                 }
                 ToolbarItem(placement: .secondaryAction) {
                     Menu {
@@ -40,7 +40,7 @@ struct SupplementListView: View {
                         Image(systemName: "arrow.up.arrow.down")
                     }
                     .accessibilityLabel(AccessibilityHelper.supplementSortButton)
-                    .accessibilityHint("选择补剂排序方式")
+                    .accessibilityHint(String(localized: "选择补剂排序方式"))
                 }
             }
             .sheet(isPresented: $showingAddForm) {
@@ -92,7 +92,7 @@ struct SupplementListView: View {
                             Label("Delete", systemImage: "trash")
                         }
                         .accessibilityLabel(AccessibilityHelper.supplementDeleteAction)
-                        .accessibilityHint("删除补剂 \(supplement.name)")
+                        .accessibilityHint(String(localized: "删除补剂 \(supplement.name)"))
                         Button {
                             selectedSupplement = supplement
                         } label: {
@@ -100,7 +100,7 @@ struct SupplementListView: View {
                         }
                         .tint(.blue)
                         .accessibilityLabel(AccessibilityHelper.supplementEditAction)
-                        .accessibilityHint("编辑补剂 \(supplement.name)")
+                        .accessibilityHint(String(localized: "编辑补剂 \(supplement.name)"))
                     }
                     .swipeActions(edge: .leading) {
                         Button {
@@ -113,7 +113,7 @@ struct SupplementListView: View {
                         }
                         .tint(supplement.isActive ? .orange : .green)
                         .accessibilityLabel(supplement.isActive ? AccessibilityHelper.supplementDeactivateAction : AccessibilityHelper.supplementActivateAction)
-                        .accessibilityHint(supplement.isActive ? "暂停使用补剂 \(supplement.name)" : "恢复使用补剂 \(supplement.name)")
+                        .accessibilityHint(supplement.isActive ? String(localized: "暂停使用补剂 \(supplement.name)") : String(localized: "恢复使用补剂 \(supplement.name)"))
                     }
                 }
             }

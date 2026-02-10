@@ -8,18 +8,18 @@ This is a native iOS/SwiftUI project. Use Xcode or `xcodebuild` from the command
 
 ```bash
 # Build the project
-xcodebuild -scheme vitamin_calculator -destination 'platform=iOS Simulator,name=iPhone 17 Pro' build
+xcodebuild -scheme suppuddy -destination 'platform=iOS Simulator,name=iPhone 17 Pro' build
 
 # Run all tests
-xcodebuild -scheme vitamin_calculator -destination 'platform=iOS Simulator,name=iPhone 17 Pro' test
+xcodebuild -scheme suppuddy -destination 'platform=iOS Simulator,name=iPhone 17 Pro' test
 
 # Run a specific test file
-xcodebuild -scheme vitamin_calculator -destination 'platform=iOS Simulator,name=iPhone 16' \
-  -only-testing:vitamin_calculatorTests/NutrientTypeTests test
+xcodebuild -scheme suppuddy -destination 'platform=iOS Simulator,name=iPhone 16' \
+  -only-testing:suppuddyTests/NutrientTypeTests test
 
 # Run a specific test method
-xcodebuild -scheme vitamin_calculator -destination 'platform=iOS Simulator,name=iPhone 16' \
-  -only-testing:vitamin_calculatorTests/NutrientTypeTests/testHasVitaminA test
+xcodebuild -scheme suppuddy -destination 'platform=iOS Simulator,name=iPhone 16' \
+  -only-testing:suppuddyTests/NutrientTypeTests/testHasVitaminA test
 ```
 
 ## Architecture
@@ -55,7 +55,7 @@ This project follows strict TDD (Red-Green-Refactor). Always write failing tests
 
 ```swift
 import Testing
-@testable import vitamin_calculator
+@testable import suppuddy
 
 @Suite("Feature Tests")
 struct FeatureTests {

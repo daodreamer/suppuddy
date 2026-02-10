@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to the Vitamin Calculator project will be documented in this file.
+All notable changes to the suppuddy project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### 🎉 Initial Release
 
-First official release of Vitamin Calculator - a comprehensive vitamin and mineral intake tracking app based on German DGE (Deutsche Gesellschaft für Ernährung) recommendations.
+First official release of suppuddy - a comprehensive vitamin and mineral intake tracking app based on German DGE (Deutsche Gesellschaft für Ernährung) recommendations.
 
 ---
 

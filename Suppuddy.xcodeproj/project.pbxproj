@@ -24,9 +24,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E5EF43A82F26981700E9218D /* suppuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = suppuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E5EF43B52F26981800E9218D /* suppuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = suppuddyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E5EF43BF2F26981800E9218D /* suppuddyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = suppuddyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5EF43A82F26981700E9218D /* Suppuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Suppuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5EF43B52F26981800E9218D /* SuppuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SuppuddyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5EF43BF2F26981800E9218D /* SuppuddyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SuppuddyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -85,9 +85,9 @@
 		E5EF43A92F26981700E9218D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E5EF43A82F26981700E9218D /* suppuddy.app */,
-				E5EF43B52F26981800E9218D /* suppuddyTests.xctest */,
-				E5EF43BF2F26981800E9218D /* suppuddyUITests.xctest */,
+				E5EF43A82F26981700E9218D /* Suppuddy.app */,
+				E5EF43B52F26981800E9218D /* SuppuddyTests.xctest */,
+				E5EF43BF2F26981800E9218D /* SuppuddyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,9 +95,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E5EF43A72F26981700E9218D /* suppuddy */ = {
+		E5EF43A72F26981700E9218D /* Suppuddy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E5EF43C92F26981800E9218D /* Build configuration list for PBXNativeTarget "suppuddy" */;
+			buildConfigurationList = E5EF43C92F26981800E9218D /* Build configuration list for PBXNativeTarget "Suppuddy" */;
 			buildPhases = (
 				E5EF43A42F26981700E9218D /* Sources */,
 				E5EF43A52F26981700E9218D /* Frameworks */,
@@ -110,16 +110,16 @@
 			fileSystemSynchronizedGroups = (
 				E5EF43AA2F26981700E9218D /* suppuddy */,
 			);
-			name = suppuddy;
+			name = Suppuddy;
 			packageProductDependencies = (
 			);
 			productName = suppuddy;
-			productReference = E5EF43A82F26981700E9218D /* suppuddy.app */;
+			productReference = E5EF43A82F26981700E9218D /* Suppuddy.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E5EF43B42F26981800E9218D /* suppuddyTests */ = {
+		E5EF43B42F26981800E9218D /* SuppuddyTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E5EF43CC2F26981800E9218D /* Build configuration list for PBXNativeTarget "suppuddyTests" */;
+			buildConfigurationList = E5EF43CC2F26981800E9218D /* Build configuration list for PBXNativeTarget "SuppuddyTests" */;
 			buildPhases = (
 				E5EF43B12F26981800E9218D /* Sources */,
 				E5EF43B22F26981800E9218D /* Frameworks */,
@@ -133,16 +133,16 @@
 			fileSystemSynchronizedGroups = (
 				E5EF43B82F26981800E9218D /* suppuddyTests */,
 			);
-			name = suppuddyTests;
+			name = SuppuddyTests;
 			packageProductDependencies = (
 			);
 			productName = suppuddyTests;
-			productReference = E5EF43B52F26981800E9218D /* suppuddyTests.xctest */;
+			productReference = E5EF43B52F26981800E9218D /* SuppuddyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E5EF43BE2F26981800E9218D /* suppuddyUITests */ = {
+		E5EF43BE2F26981800E9218D /* SuppuddyUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E5EF43CF2F26981800E9218D /* Build configuration list for PBXNativeTarget "suppuddyUITests" */;
+			buildConfigurationList = E5EF43CF2F26981800E9218D /* Build configuration list for PBXNativeTarget "SuppuddyUITests" */;
 			buildPhases = (
 				E5EF43BB2F26981800E9218D /* Sources */,
 				E5EF43BC2F26981800E9218D /* Frameworks */,
@@ -156,11 +156,11 @@
 			fileSystemSynchronizedGroups = (
 				E5EF43C22F26981800E9218D /* suppuddyUITests */,
 			);
-			name = suppuddyUITests;
+			name = SuppuddyUITests;
 			packageProductDependencies = (
 			);
 			productName = suppuddyUITests;
-			productReference = E5EF43BF2F26981800E9218D /* suppuddyUITests.xctest */;
+			productReference = E5EF43BF2F26981800E9218D /* SuppuddyUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -186,7 +186,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E5EF43A32F26981700E9218D /* Build configuration list for PBXProject "suppuddy" */;
+			buildConfigurationList = E5EF43A32F26981700E9218D /* Build configuration list for PBXProject "Suppuddy" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -202,9 +202,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E5EF43A72F26981700E9218D /* suppuddy */,
-				E5EF43B42F26981800E9218D /* suppuddyTests */,
-				E5EF43BE2F26981800E9218D /* suppuddyUITests */,
+				E5EF43A72F26981700E9218D /* Suppuddy */,
+				E5EF43B42F26981800E9218D /* SuppuddyTests */,
+				E5EF43BE2F26981800E9218D /* SuppuddyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -260,12 +260,12 @@
 /* Begin PBXTargetDependency section */
 		E5EF43B72F26981800E9218D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E5EF43A72F26981700E9218D /* suppuddy */;
+			target = E5EF43A72F26981700E9218D /* Suppuddy */;
 			targetProxy = E5EF43B62F26981800E9218D /* PBXContainerItemProxy */;
 		};
 		E5EF43C12F26981800E9218D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E5EF43A72F26981700E9218D /* suppuddy */;
+			target = E5EF43A72F26981700E9218D /* Suppuddy */;
 			targetProxy = E5EF43C02F26981800E9218D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -403,10 +403,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "suppuddy-Info.plist";
-				INFOPLIST_KEY_NSCameraUsageDescription = "需要相机权限以扫描产品条形码，快速添加补剂产品";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera permission is required to scan product barcodes and quickly add supplement products.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -437,10 +436,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "suppuddy-Info.plist";
-				INFOPLIST_KEY_NSCameraUsageDescription = "需要相机权限以扫描产品条形码，快速添加补剂产品";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera permission is required to scan product barcodes and quickly add supplement products.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -479,7 +477,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/suppuddy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/suppuddy";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Suppuddy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Suppuddy";
 			};
 			name = Debug;
 		};
@@ -502,7 +500,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/suppuddy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/suppuddy";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Suppuddy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Suppuddy";
 			};
 			name = Release;
 		};
@@ -549,7 +547,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E5EF43A32F26981700E9218D /* Build configuration list for PBXProject "suppuddy" */ = {
+		E5EF43A32F26981700E9218D /* Build configuration list for PBXProject "Suppuddy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E5EF43C72F26981800E9218D /* Debug */,
@@ -558,7 +556,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E5EF43C92F26981800E9218D /* Build configuration list for PBXNativeTarget "suppuddy" */ = {
+		E5EF43C92F26981800E9218D /* Build configuration list for PBXNativeTarget "Suppuddy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E5EF43CA2F26981800E9218D /* Debug */,
@@ -567,7 +565,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E5EF43CC2F26981800E9218D /* Build configuration list for PBXNativeTarget "suppuddyTests" */ = {
+		E5EF43CC2F26981800E9218D /* Build configuration list for PBXNativeTarget "SuppuddyTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E5EF43CD2F26981800E9218D /* Debug */,
@@ -576,7 +574,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E5EF43CF2F26981800E9218D /* Build configuration list for PBXNativeTarget "suppuddyUITests" */ = {
+		E5EF43CF2F26981800E9218D /* Build configuration list for PBXNativeTarget "SuppuddyUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E5EF43D02F26981800E9218D /* Debug */,

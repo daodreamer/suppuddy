@@ -107,6 +107,7 @@ struct BarcodeScannerView: View {
                     ScannedProductCard(
                         product: product,
                         onConfirm: {
+                            viewModel.stopScanning()
                             onProductScanned(product)
                             dismiss()
                         },
@@ -171,13 +172,24 @@ struct BarcodeScannerView: View {
 
 // MARK: - Camera Preview (UIViewRepresentable)
 
+/// Custom UIView that keeps the AVCaptureVideoPreviewLayer sized to its bounds.
+/// Using layoutSubviews ensures the frame is always correct after Auto Layout resolves.
+final class CameraPreviewUIView: UIView {
+    var previewLayer: AVCaptureVideoPreviewLayer?
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        previewLayer?.frame = bounds
+    }
+}
+
 struct CameraPreviewView: UIViewRepresentable {
     @Binding var isScanning: Bool
     @Binding var isTorchOn: Bool
     let onBarcodeScanned: (String) -> Void
 
-    func makeUIView(context: Context) -> UIView {
-        let view = UIView(frame: .zero)
+    func makeUIView(context: Context) -> CameraPreviewUIView {
+        let view = CameraPreviewUIView()
         view.backgroundColor = .black
 
         let captureSession = AVCaptureSession()
@@ -201,16 +213,16 @@ struct CameraPreviewView: UIViewRepresentable {
             metadataOutput.metadataObjectTypes = [.ean13, .ean8, .upce, .code128, .code39, .qr]
         }
 
-        // Setup preview layer
+        // Setup preview layer — frame will be set correctly in layoutSubviews
         let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer.frame = view.layer.bounds
         previewLayer.videoGravity = .resizeAspectFill
         view.layer.addSublayer(previewLayer)
+        view.previewLayer = previewLayer
 
         context.coordinator.previewLayer = previewLayer
         context.coordinator.videoCaptureDevice = videoCaptureDevice
 
-        // Start session
+        // Start session on background thread (required by AVFoundation)
         DispatchQueue.global(qos: .userInitiated).async {
             captureSession.startRunning()
         }
@@ -218,12 +230,7 @@ struct CameraPreviewView: UIViewRepresentable {
         return view
     }
 
-    func updateUIView(_ uiView: UIView, context: Context) {
-        // Update preview layer frame
-        if let previewLayer = context.coordinator.previewLayer {
-            previewLayer.frame = uiView.bounds
-        }
-
+    func updateUIView(_ uiView: CameraPreviewUIView, context: Context) {
         // Handle scanning state
         if isScanning {
             if !(context.coordinator.captureSession?.isRunning ?? false) {
@@ -294,7 +301,7 @@ struct CameraPreviewView: UIViewRepresentable {
         }
     }
 
-    static func dismantleUIView(_ uiView: UIView, coordinator: Coordinator) {
+    static func dismantleUIView(_ uiView: CameraPreviewUIView, coordinator: Coordinator) {
         coordinator.captureSession?.stopRunning()
     }
 }

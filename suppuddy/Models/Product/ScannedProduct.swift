@@ -80,7 +80,8 @@ struct ScannedProduct: Hashable, Sendable {
         if let nutrimentsDict = try? container.decode([String: AnyCodableValue].self, forKey: .nutriments) {
             self.nutrients = ScannedProduct.parseNutriments(nutrimentsDict)
         } else if let nutrientsArray = try? container.decode([ScannedNutrient].self, forKey: .nutriments) {
-            self.nutrients = nutrientsArray
+            // Normalize cached/exported data — older caches may store raw gram values
+            self.nutrients = nutrientsArray.map { $0.normalized() }
         } else {
             self.nutrients = []
         }
@@ -103,47 +104,64 @@ struct ScannedProduct: Hashable, Sendable {
     // MARK: - Nutriments Parsing
 
     /// Parses the flat Open Food Facts nutriments dictionary into ScannedNutrient array.
-    /// The API returns keys like "vitamin-a_100g", "vitamin-a_unit", "calcium_100g", etc.
+    /// The API returns values in grams by default. This method converts them to the
+    /// appropriate unit (mg or μg) matching NutrientType expectations.
+    /// Prefers _serving values (best for supplements), then _100g, then base key.
     private nonisolated static func parseNutriments(_ dict: [String: AnyCodableValue]) -> [ScannedNutrient] {
-        // Known nutrient keys in Open Food Facts format
-        let nutrientKeys = [
-            "vitamin-a", "vitamin-d", "vitamin-e", "vitamin-k",
-            "vitamin-c", "vitamin-b1", "vitamin-b2",
-            "vitamin-pp",  // niacin/B3
-            "vitamin-b6", "vitamin-b12",
-            "folates",     // folate
-            "biotin", "pantothenic-acid",
-            "calcium", "magnesium", "iron", "zinc",
-            "selenium", "iodine", "copper", "manganese",
-            "chromium", "molybdenum"
+        // OFF key → (internal name, target unit matching NutrientType.unit)
+        let nutrientDefs: [(key: String, name: String, targetUnit: String)] = [
+            ("vitamin-a",       "vitamin-a",       "μg"),
+            ("vitamin-d",       "vitamin-d",       "μg"),
+            ("vitamin-e",       "vitamin-e",       "mg"),
+            ("vitamin-k",       "vitamin-k",       "μg"),
+            ("vitamin-c",       "vitamin-c",       "mg"),
+            ("vitamin-b1",      "vitamin-b1",      "mg"),
+            ("vitamin-b2",      "vitamin-b2",      "mg"),
+            ("vitamin-pp",      "niacin",          "mg"),
+            ("vitamin-b6",      "vitamin-b6",      "mg"),
+            ("vitamin-b12",     "vitamin-b12",     "μg"),
+            ("folates",         "folate",          "μg"),
+            ("biotin",          "biotin",          "μg"),
+            ("pantothenic-acid","pantothenic-acid", "mg"),
+            ("calcium",         "calcium",         "mg"),
+            ("magnesium",       "magnesium",       "mg"),
+            ("iron",            "iron",            "mg"),
+            ("zinc",            "zinc",            "mg"),
+            ("selenium",        "selenium",        "μg"),
+            ("iodine",          "iodine",          "μg"),
+            ("copper",          "copper",          "mg"),
+            ("manganese",       "manganese",       "mg"),
+            ("chromium",        "chromium",        "μg"),
+            ("molybdenum",      "molybdenum",      "μg"),
         ]
 
         var nutrients: [ScannedNutrient] = []
 
-        for key in nutrientKeys {
-            // Try _100g value first, then base value
-            let amount: Double?
-            if let val = dict["\(key)_100g"]?.doubleValue {
-                amount = val
+        for def in nutrientDefs {
+            let key = def.key
+
+            // Prefer _serving (best for supplements), then _100g, then base key
+            let rawAmount: Double?
+            if let val = dict["\(key)_serving"]?.doubleValue {
+                rawAmount = val
+            } else if let val = dict["\(key)_100g"]?.doubleValue {
+                rawAmount = val
             } else if let val = dict[key]?.doubleValue {
-                amount = val
+                rawAmount = val
             } else {
                 continue
             }
 
-            guard let amt = amount, amt > 0 else { continue }
+            guard let amt = rawAmount, amt > 0 else { continue }
 
-            let unit = dict["\(key)_unit"]?.stringValue ?? "mg"
+            // The API unit for this nutrient (OFF typically stores values in grams)
+            let apiUnit = dict["\(key)_unit"]?.stringValue ?? "g"
 
-            // Map OFF key names to our internal names
-            let name: String
-            switch key {
-            case "vitamin-pp": name = "niacin"
-            case "folates": name = "folate"
-            default: name = key
-            }
+            // Convert from API unit to the target unit expected by NutrientType
+            let convertedAmount = ScannedNutrient.convertAmount(amt, from: apiUnit, to: def.targetUnit)
+            guard convertedAmount > 0 else { continue }
 
-            nutrients.append(ScannedNutrient(name: name, amount: amt, unit: unit))
+            nutrients.append(ScannedNutrient(name: def.name, amount: convertedAmount, unit: def.targetUnit))
         }
 
         return nutrients
@@ -161,6 +179,11 @@ struct ScannedProduct: Hashable, Sendable {
 
 // MARK: - Codable Conformance
 extension ScannedProduct: Codable {}
+
+// MARK: - Identifiable Conformance
+extension ScannedProduct: Identifiable {
+    var id: String { barcode }
+}
 
 /// Represents a single nutrient from an external API.
 /// Can be mapped to a local NutrientType if recognized.
@@ -211,21 +234,61 @@ struct ScannedNutrient: Hashable, Sendable {
         try container.encode(unit, forKey: .unit)
     }
 
+    // MARK: - Unit Conversion
+
+    /// Converts a nutrient amount between units (g, mg, μg).
+    nonisolated static func convertAmount(_ amount: Double, from sourceUnit: String, to targetUnit: String) -> Double {
+        let source = sourceUnit.lowercased().trimmingCharacters(in: .whitespaces)
+        let target = targetUnit.lowercased().trimmingCharacters(in: .whitespaces)
+        if source == target { return amount }
+
+        let sourceToGrams: Double
+        switch source {
+        case "g":               sourceToGrams = 1
+        case "mg":              sourceToGrams = 1e-3
+        case "μg", "ug", "mcg": sourceToGrams = 1e-6
+        default:                sourceToGrams = 1e-3 // assume mg
+        }
+
+        let gramsToTarget: Double
+        switch target {
+        case "g":               gramsToTarget = 1
+        case "mg":              gramsToTarget = 1e3
+        case "μg", "ug", "mcg": gramsToTarget = 1e6
+        default:                gramsToTarget = 1e3 // assume mg
+        }
+
+        return amount * sourceToGrams * gramsToTarget
+    }
+
+    /// Returns a copy with the amount converted to the NutrientType's expected unit.
+    /// For example, 0.012 g of vitamin-e becomes 12.0 mg.
+    /// If the nutrient can't be mapped or is already in the correct unit, returns self.
+    nonisolated func normalized() -> ScannedNutrient {
+        guard let nutrientType = mapToNutrientType() else { return self }
+        let targetUnit = nutrientType.unit
+        if unit == targetUnit { return self }
+        let convertedAmount = ScannedNutrient.convertAmount(amount, from: unit, to: targetUnit)
+        return ScannedNutrient(name: name, amount: convertedAmount, unit: targetUnit)
+    }
+
     // MARK: - Conversion Methods
 
-    /// Attempts to map the external nutrient name to a local NutrientType
+    /// Attempts to map the external nutrient name to a local NutrientType.
+    /// Converts the amount to match the NutrientType's expected unit.
     /// - Returns: A Nutrient object if mapping succeeds, nil otherwise
-    func toNutrient() -> Nutrient? {
+    nonisolated func toNutrient() -> Nutrient? {
         guard let nutrientType = mapToNutrientType() else {
             return nil
         }
-        return Nutrient(type: nutrientType, amount: amount)
+        let convertedAmount = ScannedNutrient.convertAmount(amount, from: unit, to: nutrientType.unit)
+        return Nutrient(type: nutrientType, amount: convertedAmount)
     }
 
     /// Maps the external nutrient name to NutrientType
     /// Supports various naming conventions from Open Food Facts API
     /// - Returns: Matching NutrientType or nil if not recognized
-    private func mapToNutrientType() -> NutrientType? {
+    nonisolated func mapToNutrientType() -> NutrientType? {
         let normalizedName = name.lowercased()
             .replacingOccurrences(of: "_", with: "-")
             .trimmingCharacters(in: .whitespaces)

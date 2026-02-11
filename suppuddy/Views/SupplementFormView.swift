@@ -20,7 +20,6 @@ struct SupplementFormView: View {
     // Quick add states
     @State private var showingScanner = false
     @State private var showingSearch = false
-    @State private var showingProductDetail = false
     @State private var selectedScannedProduct: ScannedProduct?
 
     private let repository: SupplementRepository
@@ -121,7 +120,6 @@ struct SupplementFormView: View {
                     lookupService: lookupService,
                     onProductScanned: { product in
                         selectedScannedProduct = product
-                        showingProductDetail = true
                     }
                 )
             }
@@ -130,19 +128,16 @@ struct SupplementFormView: View {
                     lookupService: lookupService,
                     onProductSelected: { product in
                         selectedScannedProduct = product
-                        showingProductDetail = true
                     }
                 )
             }
-            .sheet(isPresented: $showingProductDetail) {
-                if let product = selectedScannedProduct {
-                    ScannedProductDetailView(
-                        product: product,
-                        onConfirm: { product, servingsPerDay in
-                            fillFormFromProduct(product, servingsPerDay: servingsPerDay)
-                        }
-                    )
-                }
+            .sheet(item: $selectedScannedProduct) { product in
+                ScannedProductDetailView(
+                    product: product,
+                    onConfirm: { product, servingsPerDay in
+                        fillFormFromProduct(product, servingsPerDay: servingsPerDay)
+                    }
+                )
             }
             .alert("Validation Error", isPresented: Binding(
                 get: { !viewModel.validationErrors.isEmpty },

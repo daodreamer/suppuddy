@@ -162,6 +162,11 @@ struct ScannedProduct: Hashable, Sendable {
 // MARK: - Codable Conformance
 extension ScannedProduct: Codable {}
 
+// MARK: - Identifiable Conformance
+extension ScannedProduct: Identifiable {
+    var id: String { barcode }
+}
+
 /// Represents a single nutrient from an external API.
 /// Can be mapped to a local NutrientType if recognized.
 struct ScannedNutrient: Hashable, Sendable {

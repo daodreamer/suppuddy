@@ -269,7 +269,7 @@ struct SelectedDayRecordsView: View {
                 Spacer()
 
                 if !records.isEmpty {
-                    Text("\(records.count) 条记录")
+                    Text(String(format: NSLocalizedString("%lld 条记录", comment: ""), Int64(records.count)))
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -331,11 +331,11 @@ struct HistoryRecordRow: View {
                         .font(.caption)
                         .foregroundStyle(.secondary)
 
-                    Text("\(record.servingsTaken) 份")
+                    Text(String(format: NSLocalizedString("%lld 份", comment: ""), Int64(record.servingsTaken)))
                         .font(.caption)
                         .foregroundStyle(.secondary)
 
-                    Text("\(record.nutrients.count) 种营养素")
+                    Text(String(format: NSLocalizedString("%lld 种营养素", comment: ""), Int64(record.nutrients.count)))
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }

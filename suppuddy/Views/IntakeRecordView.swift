@@ -183,7 +183,7 @@ struct SupplementSelectionRow: View {
                             .foregroundStyle(.secondary)
                     }
 
-                    Text("\(supplement.nutrients.count) 种营养素")
+                    Text(String(format: NSLocalizedString("%lld 种营养素", comment: ""), Int64(supplement.nutrients.count)))
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -217,7 +217,7 @@ struct IntakeRecordRow: View {
                         .font(.caption)
                         .foregroundStyle(.secondary)
 
-                    Text("\(record.servingsTaken) 份")
+                    Text(String(format: NSLocalizedString("%lld 份", comment: ""), Int64(record.servingsTaken)))
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }

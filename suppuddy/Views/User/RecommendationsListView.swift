@@ -39,7 +39,7 @@ struct RecommendationsListView: View {
                         HStack {
                             Text("年龄:")
                                 .foregroundColor(.secondary)
-                            Text("\(age) 岁")
+                            Text(String(format: NSLocalizedString("%lld 岁", comment: ""), Int64(age)))
                                 .fontWeight(.medium)
                         }
                     }

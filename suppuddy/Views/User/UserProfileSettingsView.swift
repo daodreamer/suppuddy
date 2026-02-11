@@ -86,7 +86,7 @@ struct UserProfileSettingsView: View {
                             Image(systemName: "chart.bar.doc.horizontal")
                             Text("查看我的营养推荐值")
                             Spacer()
-                            Text("\(viewModel.recommendations.count) 项")
+                            Text(String(format: NSLocalizedString("%lld 项", comment: ""), Int64(viewModel.recommendations.count)))
                                 .foregroundColor(.secondary)
                                 .font(.caption)
                         }
